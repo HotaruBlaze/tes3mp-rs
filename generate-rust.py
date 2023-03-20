@@ -8,6 +8,7 @@ import regex
 INCLUDES = [
     "extern/CrabNet/include/raknet",
     "extern/tes3mp/apps/openmw-mp",
+    "extern/boost",
     "extern/tes3mp"
 ]
 
