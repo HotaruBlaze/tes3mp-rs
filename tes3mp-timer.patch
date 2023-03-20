@@ -1,0 +1,13 @@
+diff --git a/extern/tes3mp/apps/openmw-mp/Script/ScriptFunction.cpp b/extern/tes3mp/apps/openmw-mp/Script/ScriptFunction.cpp
+index 005b124..72d0665 100755
+--- a/extern/tes3mp/apps/openmw-mp/Script/ScriptFunction.cpp
++++ b/extern/tes3mp/apps/openmw-mp/Script/ScriptFunction.cpp
+@@ -34,6 +34,8 @@ boost::any ScriptFunction::Call(const std::vector<boost::any> &args)
+ 
+     if (def.length() != args.size())
+         throw std::runtime_error("Script call: Number of arguments does not match definition");
++    if (script_type == SCRIPT_CPP)
++        fCpp();
+ #if defined (ENABLE_LUA)
+     else if (script_type == SCRIPT_LUA)
+     {

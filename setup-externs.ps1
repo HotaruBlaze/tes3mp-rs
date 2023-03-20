@@ -3,6 +3,7 @@ $ExternalFolder = $PSScriptRoot+"\extern"
 $ExternalTES3MPFolder = $ExternalFolder+"/tes3mp"
 $ExternalCrabnetFolder = $ExternalFolder+"/CrabNet"
 $ExternalBoostFolder =  $ExternalFolder+"/boost"
+$ExternalDiffTool =  $ExternalFolder+"/htmldiffgenerator"
 
 if (-Not (Test-Path -Path $ExternalFolder)) {New-Item -Path $ExternalFolder -ItemType Directory }
 if (-Not (Test-Path -Path $ExternalTES3MPFolder)) {git clone --branch 0.8.1 --depth 1 https://github.com/TES3MP/openmw-tes3mp.git $ExternalTES3MPFolder }
@@ -14,6 +15,9 @@ if (-Not (Test-Path -Path $ExternalCrabnetFolder)) {
     git reset --hard 19e66190e83f53bcdcbcd6513238ed2e54878a21;
     Set-Location $PSScriptRoot
 }
+# Patch TES3MP to allow C++ timers
+pip install patch
+python -m patch tes3mp-timer.patch
 
 # Patch out OSG because we dont care about it.
 $files = @(
