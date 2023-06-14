@@ -5,16 +5,11 @@ Rust bindings for creating a TES3MP server plugin
 
 Generating the bindings can be done via running
 
+# Example Plugin
+https://github.com/HotaruBlaze/tes3mp-rs-example
 
-## For Windows:
-```
-choco install mingw -y --version=8.5.0
-./setup-externs.ps1
-python .\generate-rust.py
-```
-
-## For Linux:
-TODO: Update build instructions for linux
+# Note about Windows: 
+Windows seems to struggle to generate the bindings correctly, this is expected to be due to differences in C++ compilers and the version required for tes3mp. 
 
 
 # Build new Bindings:
