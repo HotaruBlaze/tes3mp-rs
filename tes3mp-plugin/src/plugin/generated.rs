@@ -93,6 +93,40 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustGetActorKillerName: fn(c_uint) -> *const c_char = |_| { unreachable!("GetActorKillerName was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustGetActorDeathState: fn(c_uint) -> c_uint = |_| { unreachable!("GetActorDeathState was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveChangesSize: fn(c_uint) -> c_uint = |_| { unreachable!("GetActorSpellsActiveChangesSize was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveChangesAction: fn(c_uint) -> c_uint = |_| { unreachable!("GetActorSpellsActiveChangesAction was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveId: fn(c_uint, c_uint) -> *const c_char = |_, _| { unreachable!("GetActorSpellsActiveId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveDisplayName: fn(c_uint, c_uint) -> *const c_char = |_, _| { unreachable!("GetActorSpellsActiveDisplayName was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveStackingState: fn(c_uint, c_uint) -> bool = |_, _| { unreachable!("GetActorSpellsActiveStackingState was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveEffectCount: fn(c_uint, c_uint) -> c_uint = |_, _| { unreachable!("GetActorSpellsActiveEffectCount was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveEffectId: fn(c_uint, c_uint, c_uint) -> c_uint = |_, _, _| { unreachable!("GetActorSpellsActiveEffectId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveEffectArg: fn(c_uint, c_uint, c_uint) -> c_int = |_, _, _| { unreachable!("GetActorSpellsActiveEffectArg was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveEffectMagnitude: fn(c_uint, c_uint, c_uint) -> c_double = |_, _, _| { unreachable!("GetActorSpellsActiveEffectMagnitude was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveEffectDuration: fn(c_uint, c_uint, c_uint) -> c_double = |_, _, _| { unreachable!("GetActorSpellsActiveEffectDuration was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveEffectTimeLeft: fn(c_uint, c_uint, c_uint) -> c_double = |_, _, _| { unreachable!("GetActorSpellsActiveEffectTimeLeft was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustDoesActorSpellsActiveHavePlayerCaster: fn(c_uint, c_uint) -> bool = |_, _| { unreachable!("DoesActorSpellsActiveHavePlayerCaster was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveCasterPid: fn(c_uint, c_uint) -> c_int = |_, _| { unreachable!("GetActorSpellsActiveCasterPid was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveCasterRefId: fn(c_uint, c_uint) -> *const c_char = |_, _| { unreachable!("GetActorSpellsActiveCasterRefId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveCasterRefNum: fn(c_uint, c_uint) -> c_uint = |_, _| { unreachable!("GetActorSpellsActiveCasterRefNum was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetActorSpellsActiveCasterMpNum: fn(c_uint, c_uint) -> c_uint = |_, _| { unreachable!("GetActorSpellsActiveCasterMpNum was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustDoesActorHavePosition: fn(c_uint) -> bool = |_| { unreachable!("DoesActorHavePosition was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustDoesActorHaveStatsDynamic: fn(c_uint) -> bool = |_| { unreachable!("DoesActorHaveStatsDynamic was called before set by TES3MP"); };
@@ -131,7 +165,13 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSetActorFatigueModified: fn(c_double) = |_| { unreachable!("SetActorFatigueModified was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustSetActorDeathState: fn(c_uint) = |_| { unreachable!("SetActorDeathState was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetActorDeathInstant: fn(bool) = |_| { unreachable!("SetActorDeathInstant was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSetActorSound: fn(*const c_char) = |_| { unreachable!("SetActorSound was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetActorSpellsActiveAction: fn(c_uchar) = |_| { unreachable!("SetActorSpellsActiveAction was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetActorAIAction: fn(c_uint) = |_| { unreachable!("SetActorAIAction was called before set by TES3MP"); };
     #[no_mangle]
@@ -151,6 +191,10 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustUnequipActorItem: fn(c_ushort) = |_| { unreachable!("UnequipActorItem was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustAddActorSpellActive: fn(*const c_char, *const c_char, bool) = |_, _, _| { unreachable!("AddActorSpellActive was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddActorSpellActiveEffect: fn(c_int, c_double, c_double, c_double, c_int) = |_, _, _, _, _| { unreachable!("AddActorSpellActiveEffect was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustAddActor: fn() = || { unreachable!("AddActor was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendActorList: fn() = || { unreachable!("SendActorList was called before set by TES3MP"); };
@@ -163,7 +207,11 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSendActorEquipment: fn(bool, bool) = |_, _| { unreachable!("SendActorEquipment was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustSendActorSpellsActiveChanges: fn(bool, bool) = |_, _| { unreachable!("SendActorSpellsActiveChanges was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSendActorSpeech: fn(bool, bool) = |_, _| { unreachable!("SendActorSpeech was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendActorDeath: fn(bool, bool) = |_, _| { unreachable!("SendActorDeath was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendActorAI: fn(bool, bool) = |_, _| { unreachable!("SendActorAI was called before set by TES3MP"); };
     #[no_mangle]
@@ -251,9 +299,9 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSendMessage: fn(c_ushort, *const c_char, bool, bool) = |_, _, _, _| { unreachable!("SendMessage was called before set by TES3MP"); };
     #[no_mangle]
-    pub static mut rustCleanChatForPid: fn() = || { unreachable!("CleanChatForPid was called before set by TES3MP"); };
+    pub static mut rustCleanChatForPid: fn(c_ushort) = |_| { unreachable!("CleanChatForPid was called before set by TES3MP"); };
     #[no_mangle]
-    pub static mut rustCleanChat: fn(c_ushort) = |_| { unreachable!("CleanChat was called before set by TES3MP"); };
+    pub static mut rustCleanChat: fn() = || { unreachable!("CleanChat was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustClearTopicChanges: fn(c_ushort) = |_| { unreachable!("ClearTopicChanges was called before set by TES3MP"); };
     #[no_mangle]
@@ -333,6 +381,8 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustGetEquipmentSize: fn() -> c_int = || { unreachable!("GetEquipmentSize was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustGetEquipmentChangesSize: fn(c_ushort) -> c_uint = |_| { unreachable!("GetEquipmentChangesSize was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustGetInventoryChangesSize: fn(c_ushort) -> c_uint = |_| { unreachable!("GetInventoryChangesSize was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetInventoryChangesAction: fn(c_ushort) -> c_uint = |_| { unreachable!("GetInventoryChangesAction was called before set by TES3MP"); };
@@ -346,6 +396,8 @@ pub mod raw {
     pub static mut rustAddItemChange: fn(c_ushort, *const c_char, c_uint, c_int, c_double, *const c_char) = |_, _, _, _, _, _| { unreachable!("AddItemChange was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustHasItemEquipped: fn(c_ushort, *const c_char) -> bool = |_, _| { unreachable!("HasItemEquipped was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetEquipmentChangesSlot: fn(c_ushort, c_uint) -> c_int = |_, _| { unreachable!("GetEquipmentChangesSlot was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetEquipmentItemRefId: fn(c_ushort, c_ushort) -> *const c_char = |_, _| { unreachable!("GetEquipmentItemRefId was called before set by TES3MP"); };
     #[no_mangle]
@@ -384,6 +436,8 @@ pub mod raw {
     pub static mut rustInitializeInventoryChanges: fn(c_ushort) = |_| { unreachable!("InitializeInventoryChanges was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustAddItem: fn(c_ushort, *const c_char, c_uint, c_int, c_double, *const c_char) = |_, _, _, _, _, _| { unreachable!("AddItem was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearAlliedPlayersForPlayer: fn(c_ushort) = |_| { unreachable!("ClearAlliedPlayersForPlayer was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetMiscellaneousChangeType: fn(c_ushort) -> c_uchar = |_| { unreachable!("GetMiscellaneousChangeType was called before set by TES3MP"); };
     #[no_mangle]
@@ -425,9 +479,13 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSetSelectedSpellId: fn(c_ushort, *const c_char) = |_, _| { unreachable!("SetSelectedSpellId was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustAddAlliedPlayerForPlayer: fn(c_ushort, c_ushort) = |_, _| { unreachable!("AddAlliedPlayerForPlayer was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSendMarkLocation: fn(c_ushort) = |_| { unreachable!("SendMarkLocation was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendSelectedSpell: fn(c_ushort) = |_| { unreachable!("SendSelectedSpell was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendAlliedPlayers: fn(c_ushort, bool) = |_, _| { unreachable!("SendAlliedPlayers was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustJail: fn(c_ushort, c_int, bool, bool, *const c_char, *const c_char) = |_, _, _, _, _, _| { unreachable!("Jail was called before set by TES3MP"); };
     #[no_mangle]
@@ -436,6 +494,10 @@ pub mod raw {
     pub static mut rustGetDeathReason: fn(c_ushort) -> *const c_char = |_| { unreachable!("GetDeathReason was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetPlayerKillerRefNumIndex: fn(c_ushort) -> c_uint = |_| { unreachable!("GetPlayerKillerRefNumIndex was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGenerateRandomString: fn(c_uint) -> *const c_char = |_| { unreachable!("GenerateRandomString was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSHA256Hash: fn(*const c_char) -> *const c_char = |_| { unreachable!("GetSHA256Hash was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetLastPlayerId: fn() -> c_uint = || { unreachable!("GetLastPlayerId was called before set by TES3MP"); };
     #[no_mangle]
@@ -471,19 +533,13 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustClearJournalChanges: fn(c_ushort) = |_| { unreachable!("ClearJournalChanges was called before set by TES3MP"); };
     #[no_mangle]
-    pub static mut rustClearKillChanges: fn(c_ushort) = |_| { unreachable!("ClearKillChanges was called before set by TES3MP"); };
-    #[no_mangle]
     pub static mut rustGetJournalChangesSize: fn(c_ushort) -> c_uint = |_| { unreachable!("GetJournalChangesSize was called before set by TES3MP"); };
-    #[no_mangle]
-    pub static mut rustGetKillChangesSize: fn(c_ushort) -> c_uint = |_| { unreachable!("GetKillChangesSize was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustAddJournalEntry: fn(c_ushort, *const c_char, c_uint, *const c_char) = |_, _, _, _| { unreachable!("AddJournalEntry was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustAddJournalEntryWithTimestamp: fn(c_ushort, *const c_char, c_uint, *const c_char, c_uint, c_uint, c_uint) = |_, _, _, _, _, _, _| { unreachable!("AddJournalEntryWithTimestamp was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustAddJournalIndex: fn(c_ushort, *const c_char, c_uint) = |_, _, _| { unreachable!("AddJournalIndex was called before set by TES3MP"); };
-    #[no_mangle]
-    pub static mut rustAddKill: fn(c_ushort, *const c_char, c_int) = |_, _, _| { unreachable!("AddKill was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetReputation: fn(c_ushort, c_int) = |_, _| { unreachable!("SetReputation was called before set by TES3MP"); };
     #[no_mangle]
@@ -495,21 +551,13 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustGetJournalItemActorRefId: fn(c_ushort, c_uint) -> *const c_char = |_, _| { unreachable!("GetJournalItemActorRefId was called before set by TES3MP"); };
     #[no_mangle]
-    pub static mut rustGetKillRefId: fn(c_ushort, c_uint) -> *const c_char = |_, _| { unreachable!("GetKillRefId was called before set by TES3MP"); };
-    #[no_mangle]
-    pub static mut rustGetKillNumber: fn(c_ushort, c_uint) -> c_int = |_, _| { unreachable!("GetKillNumber was called before set by TES3MP"); };
-    #[no_mangle]
     pub static mut rustGetReputation: fn(c_ushort) -> c_int = |_| { unreachable!("GetReputation was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendJournalChanges: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendJournalChanges was called before set by TES3MP"); };
     #[no_mangle]
-    pub static mut rustSendKillChanges: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendKillChanges was called before set by TES3MP"); };
-    #[no_mangle]
     pub static mut rustSendReputation: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendReputation was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustInitializeJournalChanges: fn(c_ushort) = |_| { unreachable!("InitializeJournalChanges was called before set by TES3MP"); };
-    #[no_mangle]
-    pub static mut rustInitializeKillChanges: fn(c_ushort) = |_| { unreachable!("InitializeKillChanges was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustClearRecords: fn() = || { unreachable!("ClearRecords was called before set by TES3MP"); };
     #[no_mangle]
@@ -548,6 +596,8 @@ pub mod raw {
     pub static mut rustGetRecordValue: fn(c_uint) -> c_int = |_| { unreachable!("GetRecordValue was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetRecordWeight: fn(c_uint) -> c_double = |_| { unreachable!("GetRecordWeight was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetRecordQuantity: fn(c_uint) -> c_uint = |_| { unreachable!("GetRecordQuantity was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetRecordEffectId: fn(c_uint, c_uint) -> c_uint = |_, _| { unreachable!("GetRecordEffectId was called before set by TES3MP"); };
     #[no_mangle]
@@ -599,6 +649,16 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSetRecordWeight: fn(c_double) = |_| { unreachable!("SetRecordWeight was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustSetRecordQuality: fn(c_double) = |_| { unreachable!("SetRecordQuality was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordUses: fn(c_int) = |_| { unreachable!("SetRecordUses was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordTime: fn(c_int) = |_| { unreachable!("SetRecordTime was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordRadius: fn(c_int) = |_| { unreachable!("SetRecordRadius was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordColor: fn(c_uint, c_uint, c_uint) = |_, _, _| { unreachable!("SetRecordColor was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSetRecordArmorRating: fn(c_int) = |_| { unreachable!("SetRecordArmorRating was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetRecordHealth: fn(c_int) = |_| { unreachable!("SetRecordHealth was called before set by TES3MP"); };
@@ -633,13 +693,47 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSetRecordFaction: fn(*const c_char) = |_| { unreachable!("SetRecordFaction was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustSetRecordScale: fn(c_double) = |_| { unreachable!("SetRecordScale was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordBloodType: fn(c_int) = |_| { unreachable!("SetRecordBloodType was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordVampireState: fn(bool) = |_| { unreachable!("SetRecordVampireState was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSetRecordLevel: fn(c_int) = |_| { unreachable!("SetRecordLevel was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetRecordMagicka: fn(c_int) = |_| { unreachable!("SetRecordMagicka was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetRecordFatigue: fn(c_int) = |_| { unreachable!("SetRecordFatigue was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustSetRecordSoulValue: fn(c_int) = |_| { unreachable!("SetRecordSoulValue was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSetRecordAIFight: fn(c_int) = |_| { unreachable!("SetRecordAIFight was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordAIFlee: fn(c_int) = |_| { unreachable!("SetRecordAIFlee was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordAIAlarm: fn(c_int) = |_| { unreachable!("SetRecordAIAlarm was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordAIServices: fn(c_int) = |_| { unreachable!("SetRecordAIServices was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordSound: fn(*const c_char) = |_| { unreachable!("SetRecordSound was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordVolume: fn(c_double) = |_| { unreachable!("SetRecordVolume was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordMinRange: fn(c_double) = |_| { unreachable!("SetRecordMinRange was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordMaxRange: fn(c_double) = |_| { unreachable!("SetRecordMaxRange was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordOpenSound: fn(*const c_char) = |_| { unreachable!("SetRecordOpenSound was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordCloseSound: fn(*const c_char) = |_| { unreachable!("SetRecordCloseSound was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordScriptText: fn(*const c_char) = |_| { unreachable!("SetRecordScriptText was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordIntegerVariable: fn(c_int) = |_| { unreachable!("SetRecordIntegerVariable was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordFloatVariable: fn(c_double) = |_| { unreachable!("SetRecordFloatVariable was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetRecordStringVariable: fn(*const c_char) = |_| { unreachable!("SetRecordStringVariable was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetRecordIdByIndex: fn(c_uint, *const c_char) = |_, _| { unreachable!("SetRecordIdByIndex was called before set by TES3MP"); };
     #[no_mangle]
@@ -781,21 +875,85 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSetWaitAllowed: fn(c_ushort, bool) = |_, _| { unreachable!("SetWaitAllowed was called before set by TES3MP"); };
     #[no_mangle]
-    pub static mut rustSendSettings: fn(c_ushort) = |_| { unreachable!("SendSettings was called before set by TES3MP"); };
+    pub static mut rustSetGameSettingValue: fn(c_ushort, *const c_char, *const c_char) = |_, _, _| { unreachable!("SetGameSettingValue was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearGameSettingValues: fn(c_ushort) = |_| { unreachable!("ClearGameSettingValues was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetVRSettingValue: fn(c_ushort, *const c_char, *const c_char) = |_, _, _| { unreachable!("SetVRSettingValue was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearVRSettingValues: fn(c_ushort) = |_| { unreachable!("ClearVRSettingValues was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendSettings: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendSettings was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustClearSpellbookChanges: fn(c_ushort) = |_| { unreachable!("ClearSpellbookChanges was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearSpellsActiveChanges: fn(c_ushort) = |_| { unreachable!("ClearSpellsActiveChanges was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearCooldownChanges: fn(c_ushort) = |_| { unreachable!("ClearCooldownChanges was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetSpellbookChangesSize: fn(c_ushort) -> c_uint = |_| { unreachable!("GetSpellbookChangesSize was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetSpellbookChangesAction: fn(c_ushort) -> c_uint = |_| { unreachable!("GetSpellbookChangesAction was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustGetSpellsActiveChangesSize: fn(c_ushort) -> c_uint = |_| { unreachable!("GetSpellsActiveChangesSize was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveChangesAction: fn(c_ushort) -> c_uint = |_| { unreachable!("GetSpellsActiveChangesAction was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetCooldownChangesSize: fn(c_ushort) -> c_uint = |_| { unreachable!("GetCooldownChangesSize was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSetSpellbookChangesAction: fn(c_ushort, c_uchar) = |_, _| { unreachable!("SetSpellbookChangesAction was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetSpellsActiveChangesAction: fn(c_ushort, c_uchar) = |_, _| { unreachable!("SetSpellsActiveChangesAction was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustAddSpell: fn(c_ushort, *const c_char) = |_, _| { unreachable!("AddSpell was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustAddSpellActive: fn(c_ushort, *const c_char, *const c_char, bool) = |_, _, _, _| { unreachable!("AddSpellActive was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddSpellActiveEffect: fn(c_ushort, c_int, c_double, c_double, c_double, c_int) = |_, _, _, _, _, _| { unreachable!("AddSpellActiveEffect was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddCooldownSpell: fn(c_ushort, *const c_char, c_uint, c_double) = |_, _, _, _| { unreachable!("AddCooldownSpell was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustGetSpellId: fn(c_ushort, c_uint) -> *const c_char = |_, _| { unreachable!("GetSpellId was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustGetSpellsActiveId: fn(c_ushort, c_uint) -> *const c_char = |_, _| { unreachable!("GetSpellsActiveId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveDisplayName: fn(c_ushort, c_uint) -> *const c_char = |_, _| { unreachable!("GetSpellsActiveDisplayName was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveStackingState: fn(c_ushort, c_uint) -> bool = |_, _| { unreachable!("GetSpellsActiveStackingState was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveEffectCount: fn(c_ushort, c_uint) -> c_uint = |_, _| { unreachable!("GetSpellsActiveEffectCount was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveEffectId: fn(c_ushort, c_uint, c_uint) -> c_uint = |_, _, _| { unreachable!("GetSpellsActiveEffectId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveEffectArg: fn(c_ushort, c_uint, c_uint) -> c_int = |_, _, _| { unreachable!("GetSpellsActiveEffectArg was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveEffectMagnitude: fn(c_ushort, c_uint, c_uint) -> c_double = |_, _, _| { unreachable!("GetSpellsActiveEffectMagnitude was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveEffectDuration: fn(c_ushort, c_uint, c_uint) -> c_double = |_, _, _| { unreachable!("GetSpellsActiveEffectDuration was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveEffectTimeLeft: fn(c_ushort, c_uint, c_uint) -> c_double = |_, _, _| { unreachable!("GetSpellsActiveEffectTimeLeft was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustDoesSpellsActiveHavePlayerCaster: fn(c_ushort, c_uint) -> bool = |_, _| { unreachable!("DoesSpellsActiveHavePlayerCaster was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveCasterPid: fn(c_ushort, c_uint) -> c_int = |_, _| { unreachable!("GetSpellsActiveCasterPid was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveCasterRefId: fn(c_ushort, c_uint) -> *const c_char = |_, _| { unreachable!("GetSpellsActiveCasterRefId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveCasterRefNum: fn(c_ushort, c_uint) -> c_uint = |_, _| { unreachable!("GetSpellsActiveCasterRefNum was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetSpellsActiveCasterMpNum: fn(c_ushort, c_uint) -> c_uint = |_, _| { unreachable!("GetSpellsActiveCasterMpNum was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetCooldownSpellId: fn(c_ushort, c_uint) -> *const c_char = |_, _| { unreachable!("GetCooldownSpellId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetCooldownStartDay: fn(c_ushort, c_uint) -> c_uint = |_, _| { unreachable!("GetCooldownStartDay was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetCooldownStartHour: fn(c_ushort, c_uint) -> c_double = |_, _| { unreachable!("GetCooldownStartHour was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSendSpellbookChanges: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendSpellbookChanges was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendSpellsActiveChanges: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendSpellsActiveChanges was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendCooldownChanges: fn(c_ushort) = |_| { unreachable!("SendCooldownChanges was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustInitializeSpellbookChanges: fn(c_ushort) = |_| { unreachable!("InitializeSpellbookChanges was called before set by TES3MP"); };
     #[no_mangle]
@@ -820,6 +978,8 @@ pub mod raw {
     pub static mut rustGetHair: fn(c_ushort) -> *const c_char = |_| { unreachable!("GetHair was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetIsMale: fn(c_ushort) -> c_int = |_| { unreachable!("GetIsMale was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetModel: fn(c_ushort) -> *const c_char = |_| { unreachable!("GetModel was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetBirthsign: fn(c_ushort) -> *const c_char = |_| { unreachable!("GetBirthsign was called before set by TES3MP"); };
     #[no_mangle]
@@ -866,6 +1026,8 @@ pub mod raw {
     pub static mut rustSetHair: fn(c_ushort, *const c_char) = |_, _| { unreachable!("SetHair was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetIsMale: fn(c_ushort, c_int) = |_, _| { unreachable!("SetIsMale was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetModel: fn(c_ushort, *const c_char) = |_, _| { unreachable!("SetModel was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetBirthsign: fn(c_ushort, *const c_char) = |_, _| { unreachable!("SetBirthsign was called before set by TES3MP"); };
     #[no_mangle]
@@ -935,6 +1097,8 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustGetObjectListAction: fn() -> c_uchar = || { unreachable!("GetObjectListAction was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustGetObjectListConsoleCommand: fn() -> *const c_char = || { unreachable!("GetObjectListConsoleCommand was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustGetObjectListContainerSubAction: fn() -> c_uchar = || { unreachable!("GetObjectListContainerSubAction was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustIsObjectPlayer: fn(c_uint) -> bool = |_| { unreachable!("IsObjectPlayer was called before set by TES3MP"); };
@@ -959,11 +1123,23 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustGetObjectScale: fn(c_uint) -> c_double = |_| { unreachable!("GetObjectScale was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustGetObjectSoundId: fn(c_uint) -> *const c_char = |_| { unreachable!("GetObjectSoundId was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustGetObjectState: fn(c_uint) -> bool = |_| { unreachable!("GetObjectState was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetObjectDoorState: fn(c_uint) -> c_int = |_| { unreachable!("GetObjectDoorState was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetObjectLockLevel: fn(c_uint) -> c_int = |_| { unreachable!("GetObjectLockLevel was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectDialogueChoiceType: fn(c_uint) -> c_uint = |_| { unreachable!("GetObjectDialogueChoiceType was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectDialogueChoiceTopic: fn(c_uint) -> *const c_char = |_| { unreachable!("GetObjectDialogueChoiceTopic was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectGoldPool: fn(c_uint) -> c_uint = |_| { unreachable!("GetObjectGoldPool was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectLastGoldRestockHour: fn(c_uint) -> c_double = |_| { unreachable!("GetObjectLastGoldRestockHour was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectLastGoldRestockDay: fn(c_uint) -> c_int = |_| { unreachable!("GetObjectLastGoldRestockDay was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustDoesObjectHavePlayerActivating: fn(c_uint) -> bool = |_| { unreachable!("DoesObjectHavePlayerActivating was called before set by TES3MP"); };
     #[no_mangle]
@@ -977,7 +1153,31 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustGetObjectActivatingName: fn(c_uint) -> *const c_char = |_| { unreachable!("GetObjectActivatingName was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustGetObjectHitSuccess: fn(c_uint) -> bool = |_| { unreachable!("GetObjectHitSuccess was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectHitDamage: fn(c_uint) -> c_double = |_| { unreachable!("GetObjectHitDamage was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectHitBlock: fn(c_uint) -> bool = |_| { unreachable!("GetObjectHitBlock was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectHitKnockdown: fn(c_uint) -> bool = |_| { unreachable!("GetObjectHitKnockdown was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustDoesObjectHavePlayerHitting: fn(c_uint) -> bool = |_| { unreachable!("DoesObjectHavePlayerHitting was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectHittingPid: fn(c_uint) -> c_int = |_| { unreachable!("GetObjectHittingPid was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectHittingRefId: fn(c_uint) -> *const c_char = |_| { unreachable!("GetObjectHittingRefId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectHittingRefNum: fn(c_uint) -> c_uint = |_| { unreachable!("GetObjectHittingRefNum was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectHittingMpNum: fn(c_uint) -> c_uint = |_| { unreachable!("GetObjectHittingMpNum was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectHittingName: fn(c_uint) -> *const c_char = |_| { unreachable!("GetObjectHittingName was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustGetObjectSummonState: fn(c_uint) -> bool = |_| { unreachable!("GetObjectSummonState was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectSummonEffectId: fn(c_uint) -> c_double = |_| { unreachable!("GetObjectSummonEffectId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetObjectSummonSpellId: fn(c_uint) -> *const c_char = |_| { unreachable!("GetObjectSummonSpellId was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetObjectSummonDuration: fn(c_uint) -> c_double = |_| { unreachable!("GetObjectSummonDuration was called before set by TES3MP"); };
     #[no_mangle]
@@ -1005,6 +1205,16 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustGetVideoFilename: fn(c_uint) -> *const c_char = |_| { unreachable!("GetVideoFilename was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustGetClientLocalsSize: fn(c_uint) -> c_uint = |_| { unreachable!("GetClientLocalsSize was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientLocalInternalIndex: fn(c_uint, c_uint) -> c_uint = |_, _| { unreachable!("GetClientLocalInternalIndex was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientLocalVariableType: fn(c_uint, c_uint) -> c_ushort = |_, _| { unreachable!("GetClientLocalVariableType was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientLocalIntValue: fn(c_uint, c_uint) -> c_int = |_, _| { unreachable!("GetClientLocalIntValue was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientLocalFloatValue: fn(c_uint, c_uint) -> c_double = |_, _| { unreachable!("GetClientLocalFloatValue was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustGetContainerChangesSize: fn(c_uint) -> c_uint = |_| { unreachable!("GetContainerChangesSize was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetContainerItemRefId: fn(c_uint, c_uint) -> *const c_char = |_, _| { unreachable!("GetContainerItemRefId was called before set by TES3MP"); };
@@ -1021,9 +1231,13 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustDoesObjectHaveContainer: fn(c_uint) -> bool = |_| { unreachable!("DoesObjectHaveContainer was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustIsObjectDroppedByPlayer: fn(c_uint) -> bool = |_| { unreachable!("IsObjectDroppedByPlayer was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSetObjectListCell: fn(*const c_char) = |_| { unreachable!("SetObjectListCell was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetObjectListAction: fn(c_uchar) = |_| { unreachable!("SetObjectListAction was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectListContainerSubAction: fn(c_uchar) = |_| { unreachable!("SetObjectListContainerSubAction was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetObjectListConsoleCommand: fn(*const c_char) = |_| { unreachable!("SetObjectListConsoleCommand was called before set by TES3MP"); };
     #[no_mangle]
@@ -1049,15 +1263,39 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSetObjectLockLevel: fn(c_int) = |_| { unreachable!("SetObjectLockLevel was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustSetObjectDialogueChoiceType: fn(c_uint) = |_| { unreachable!("SetObjectDialogueChoiceType was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectDialogueChoiceTopic: fn(*const c_char) = |_| { unreachable!("SetObjectDialogueChoiceTopic was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectGoldPool: fn(c_uint) = |_| { unreachable!("SetObjectGoldPool was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectLastGoldRestockHour: fn(c_double) = |_| { unreachable!("SetObjectLastGoldRestockHour was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectLastGoldRestockDay: fn(c_int) = |_| { unreachable!("SetObjectLastGoldRestockDay was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSetObjectDisarmState: fn(bool) = |_| { unreachable!("SetObjectDisarmState was called before set by TES3MP"); };
     #[no_mangle]
-    pub static mut rustSetObjectSummonDuration: fn(c_float) = |_| { unreachable!("SetObjectSummonDuration was called before set by TES3MP"); };
-    #[no_mangle]
-    pub static mut rustSetObjectSummonState: fn(bool) = |_| { unreachable!("SetObjectSummonState was called before set by TES3MP"); };
+    pub static mut rustSetObjectDroppedByPlayerState: fn(bool) = |_| { unreachable!("SetObjectDroppedByPlayerState was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetObjectPosition: fn(c_double, c_double, c_double) = |_, _, _| { unreachable!("SetObjectPosition was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetObjectRotation: fn(c_double, c_double, c_double) = |_, _, _| { unreachable!("SetObjectRotation was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectSound: fn(*const c_char, c_double, c_double) = |_, _, _| { unreachable!("SetObjectSound was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectSummonState: fn(bool) = |_| { unreachable!("SetObjectSummonState was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectSummonEffectId: fn(c_int) = |_| { unreachable!("SetObjectSummonEffectId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectSummonSpellId: fn(*const c_char) = |_| { unreachable!("SetObjectSummonSpellId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectSummonDuration: fn(c_double) = |_| { unreachable!("SetObjectSummonDuration was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectSummonerPid: fn(c_ushort) = |_| { unreachable!("SetObjectSummonerPid was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectSummonerRefNum: fn(c_int) = |_| { unreachable!("SetObjectSummonerRefNum was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSetObjectSummonerMpNum: fn(c_int) = |_| { unreachable!("SetObjectSummonerMpNum was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetObjectActivatingPid: fn(c_ushort) = |_| { unreachable!("SetObjectActivatingPid was called before set by TES3MP"); };
     #[no_mangle]
@@ -1087,6 +1325,10 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustAddObject: fn() = || { unreachable!("AddObject was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustAddClientLocalInteger: fn(c_int, c_int, c_uint) = |_, _, _| { unreachable!("AddClientLocalInteger was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddClientLocalFloat: fn(c_int, c_double) = |_, _| { unreachable!("AddClientLocalFloat was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustAddContainerItem: fn() = || { unreachable!("AddContainerItem was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendObjectActivate: fn(bool, bool) = |_, _| { unreachable!("SendObjectActivate was called before set by TES3MP"); };
@@ -1099,11 +1341,23 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustSendObjectLock: fn(bool, bool) = |_, _| { unreachable!("SendObjectLock was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustSendObjectDialogueChoice: fn(bool, bool) = |_, _| { unreachable!("SendObjectDialogueChoice was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendObjectMiscellaneous: fn(bool, bool) = |_, _| { unreachable!("SendObjectMiscellaneous was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendObjectRestock: fn(bool, bool) = |_, _| { unreachable!("SendObjectRestock was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSendObjectTrap: fn(bool, bool) = |_, _| { unreachable!("SendObjectTrap was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendObjectScale: fn(bool, bool) = |_, _| { unreachable!("SendObjectScale was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustSendObjectSound: fn(bool, bool) = |_, _| { unreachable!("SendObjectSound was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustSendObjectState: fn(bool, bool) = |_, _| { unreachable!("SendObjectState was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendObjectMove: fn(bool, bool) = |_, _| { unreachable!("SendObjectMove was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendObjectRotate: fn(bool, bool) = |_, _| { unreachable!("SendObjectRotate was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendDoorState: fn(bool, bool) = |_, _| { unreachable!("SendDoorState was called before set by TES3MP"); };
     #[no_mangle]
@@ -1112,6 +1366,8 @@ pub mod raw {
     pub static mut rustSendContainer: fn(bool, bool) = |_, _| { unreachable!("SendContainer was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendVideoPlay: fn(bool, bool) = |_, _| { unreachable!("SendVideoPlay was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendClientScriptLocal: fn(bool, bool) = |_, _| { unreachable!("SendClientScriptLocal was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendConsoleCommand: fn(bool, bool) = |_, _| { unreachable!("SendConsoleCommand was called before set by TES3MP"); };
     #[no_mangle]
@@ -1149,9 +1405,21 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustCopyReceivedWorldstateToStore: fn() = || { unreachable!("CopyReceivedWorldstateToStore was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustClearKillChanges: fn() = || { unreachable!("ClearKillChanges was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustClearMapChanges: fn() = || { unreachable!("ClearMapChanges was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustClearClientGlobals: fn() = || { unreachable!("ClearClientGlobals was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetKillChangesSize: fn() -> c_uint = || { unreachable!("GetKillChangesSize was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustGetMapChangesSize: fn() -> c_uint = || { unreachable!("GetMapChangesSize was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientGlobalsSize: fn() -> c_uint = || { unreachable!("GetClientGlobalsSize was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetKillRefId: fn(c_uint) -> *const c_char = |_| { unreachable!("GetKillRefId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetKillNumber: fn(c_uint) -> c_int = |_| { unreachable!("GetKillNumber was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetWeatherRegion: fn() -> *const c_char = || { unreachable!("GetWeatherRegion was called before set by TES3MP"); };
     #[no_mangle]
@@ -1166,6 +1434,14 @@ pub mod raw {
     pub static mut rustGetMapTileCellX: fn(c_uint) -> c_int = |_| { unreachable!("GetMapTileCellX was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustGetMapTileCellY: fn(c_uint) -> c_int = |_| { unreachable!("GetMapTileCellY was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientGlobalId: fn(c_uint) -> *const c_char = |_| { unreachable!("GetClientGlobalId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientGlobalVariableType: fn(c_uint) -> c_ushort = |_| { unreachable!("GetClientGlobalVariableType was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientGlobalIntValue: fn(c_uint) -> c_int = |_| { unreachable!("GetClientGlobalIntValue was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustGetClientGlobalFloatValue: fn(c_uint) -> c_double = |_| { unreachable!("GetClientGlobalFloatValue was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSetAuthorityRegion: fn(*const c_char) = |_| { unreachable!("SetAuthorityRegion was called before set by TES3MP"); };
     #[no_mangle]
@@ -1201,13 +1477,41 @@ pub mod raw {
     #[no_mangle]
     pub static mut rustUseActorCollisionForPlacedObjects: fn(bool) = |_| { unreachable!("UseActorCollisionForPlacedObjects was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustAddKill: fn(*const c_char, c_int) = |_, _| { unreachable!("AddKill was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddClientGlobalInteger: fn(*const c_char, c_int, c_uint) = |_, _, _| { unreachable!("AddClientGlobalInteger was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddClientGlobalFloat: fn(*const c_char, c_double) = |_, _| { unreachable!("AddClientGlobalFloat was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddSynchronizedClientScriptId: fn(*const c_char) = |_| { unreachable!("AddSynchronizedClientScriptId was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddSynchronizedClientGlobalId: fn(*const c_char) = |_| { unreachable!("AddSynchronizedClientGlobalId was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustAddEnforcedCollisionRefId: fn(*const c_char) = |_| { unreachable!("AddEnforcedCollisionRefId was called before set by TES3MP"); };
     #[no_mangle]
+    pub static mut rustAddCellToReset: fn(*const c_char) = |_| { unreachable!("AddCellToReset was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustAddDestinationOverride: fn(*const c_char, *const c_char) = |_, _| { unreachable!("AddDestinationOverride was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearSynchronizedClientScriptIds: fn() = || { unreachable!("ClearSynchronizedClientScriptIds was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearSynchronizedClientGlobalIds: fn() = || { unreachable!("ClearSynchronizedClientGlobalIds was called before set by TES3MP"); };
+    #[no_mangle]
     pub static mut rustClearEnforcedCollisionRefIds: fn() = || { unreachable!("ClearEnforcedCollisionRefIds was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearCellsToReset: fn() = || { unreachable!("ClearCellsToReset was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustClearDestinationOverrides: fn() = || { unreachable!("ClearDestinationOverrides was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSaveMapTileImageFile: fn(c_uint, *const c_char) = |_, _| { unreachable!("SaveMapTileImageFile was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustLoadMapTileImageFile: fn(c_int, c_int, *const c_char) = |_, _, _| { unreachable!("LoadMapTileImageFile was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendClientScriptGlobal: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendClientScriptGlobal was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendClientScriptSettings: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendClientScriptSettings was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendWorldKillCount: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendWorldKillCount was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendWorldMap: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendWorldMap was called before set by TES3MP"); };
     #[no_mangle]
@@ -1216,6 +1520,10 @@ pub mod raw {
     pub static mut rustSendWorldWeather: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendWorldWeather was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendWorldCollisionOverride: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendWorldCollisionOverride was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendCellReset: fn(c_ushort, bool) = |_, _| { unreachable!("SendCellReset was called before set by TES3MP"); };
+    #[no_mangle]
+    pub static mut rustSendWorldDestinationOverride: fn(c_ushort, bool, bool) = |_, _, _| { unreachable!("SendWorldDestinationOverride was called before set by TES3MP"); };
     #[no_mangle]
     pub static mut rustSendWorldRegionAuthority: fn(c_ushort) = |_| { unreachable!("SendWorldRegionAuthority was called before set by TES3MP"); };
     #[no_mangle]
@@ -1802,6 +2110,256 @@ pub fn get_actor_killer_name(index: c_uint) -> String {
 }
 
 ///
+///  Get the deathState of the actor at a certain index in the read actor list.
+///
+///  `index` The index of the actor.
+///
+///  Returns the deathState.
+///
+pub fn get_actor_death_state(index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetActorDeathState(index)
+    }
+}
+
+///
+///  Get the number of indexes in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.
+///
+///  Returns the number of indexes for spells active changes.
+///
+pub fn get_actor_spells_active_changes_size(actor_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetActorSpellsActiveChangesSize(actor_index)
+    }
+}
+
+///
+///  Get the action type used in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.
+///
+///  Returns the action type (0 for SET, 1 for ADD, 2 for REMOVE).
+///
+pub fn get_actor_spells_active_changes_action(actor_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetActorSpellsActiveChangesAction(actor_index)
+    }
+}
+
+///
+///  Get the spell id at a certain index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns the spell id.
+///
+pub fn get_actor_spells_active_id(actor_index: c_uint, spell_index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetActorSpellsActiveId(actor_index, spell_index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the spell display name at a certain index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns the spell display name.
+///
+pub fn get_actor_spells_active_display_name(actor_index: c_uint, spell_index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetActorSpellsActiveDisplayName(actor_index, spell_index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the spell stacking state at a certain index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns the spell stacking state.
+///
+pub fn get_actor_spells_active_stacking_state(actor_index: c_uint, spell_index: c_uint) -> bool {
+    unsafe {
+        raw::rustGetActorSpellsActiveStackingState(actor_index, spell_index)
+    }
+}
+
+///
+///  Get the number of effects at an index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns the number of effects.
+///
+pub fn get_actor_spells_active_effect_count(actor_index: c_uint, spell_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetActorSpellsActiveEffectCount(actor_index, spell_index)
+    }
+}
+
+///
+///  Get the id for an effect index at a spell index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the id of the effect.
+///
+pub fn get_actor_spells_active_effect_id(actor_index: c_uint, spell_index: c_uint, effect_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetActorSpellsActiveEffectId(actor_index, spell_index, effect_index)
+    }
+}
+
+///
+///  Get the arg for an effect index at a spell index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the arg of the effect.
+///
+pub fn get_actor_spells_active_effect_arg(actor_index: c_uint, spell_index: c_uint, effect_index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetActorSpellsActiveEffectArg(actor_index, spell_index, effect_index)
+    }
+}
+
+///
+///  Get the magnitude for an effect index at a spell index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the magnitude of the effect.
+///
+pub fn get_actor_spells_active_effect_magnitude(actor_index: c_uint, spell_index: c_uint, effect_index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetActorSpellsActiveEffectMagnitude(actor_index, spell_index, effect_index)
+    }
+}
+
+///
+///  Get the duration for an effect index at a spell index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the duration of the effect.
+///
+pub fn get_actor_spells_active_effect_duration(actor_index: c_uint, spell_index: c_uint, effect_index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetActorSpellsActiveEffectDuration(actor_index, spell_index, effect_index)
+    }
+}
+
+///
+///  Get the time left for an effect index at a spell index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the time left for the effect.
+///
+pub fn get_actor_spells_active_effect_time_left(actor_index: c_uint, spell_index: c_uint, effect_index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetActorSpellsActiveEffectTimeLeft(actor_index, spell_index, effect_index)
+    }
+}
+
+///
+///  Check whether the spell at a certain index in an actor's latest spells active changes has a player  
+///         as its caster.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns whether a player is the caster of the spell.
+///
+pub fn does_actor_spells_active_have_player_caster(actor_index: c_uint, spell_index: c_uint) -> bool {
+    unsafe {
+        raw::rustDoesActorSpellsActiveHavePlayerCaster(actor_index, spell_index)
+    }
+}
+
+///
+///  Get the player ID of the caster of the spell at a certain index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns the player ID of the caster.
+///
+pub fn get_actor_spells_active_caster_pid(actor_index: c_uint, spell_index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetActorSpellsActiveCasterPid(actor_index, spell_index)
+    }
+}
+
+///
+///  Get the refId of the actor caster of the spell at a certain index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns the refId of the caster.
+///
+pub fn get_actor_spells_active_caster_ref_id(actor_index: c_uint, spell_index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetActorSpellsActiveCasterRefId(actor_index, spell_index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the refNum of the actor caster of the spell at a certain index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns the refNum of the caster.
+///
+pub fn get_actor_spells_active_caster_ref_num(actor_index: c_uint, spell_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetActorSpellsActiveCasterRefNum(actor_index, spell_index)
+    }
+}
+
+///
+///  Get the mpNum of the actor caster of the spell at a certain index in an actor's latest spells active changes.
+///
+///  `actor_index` The index of the actor.  
+///  `spell_index` The index of the spell.
+///
+///  Returns the mpNum of the caster.
+///
+pub fn get_actor_spells_active_caster_mp_num(actor_index: c_uint, spell_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetActorSpellsActiveCasterMpNum(actor_index, spell_index)
+    }
+}
+
+///
 ///  Check whether there is any positional data for the actor at a certain index in  
 ///  the read actor list.
 ///
@@ -2068,6 +2626,33 @@ pub fn set_actor_fatigue_modified(value: c_double) {
 }
 
 ///
+///  Set the deathState of the temporary actor stored on the server.
+///
+///  `death_state` The deathState.
+///
+///  Returns void
+///
+pub fn set_actor_death_state(death_state: c_uint) {
+    unsafe {
+        raw::rustSetActorDeathState(death_state)
+    }
+}
+
+///
+///  Set whether the death of the temporary actor stored on the server should  
+///         be instant or not.
+///
+///  `is_instant` Whether the death should be instant.
+///
+///  Returns void
+///
+pub fn set_actor_death_instant(is_instant: bool) {
+    unsafe {
+        raw::rustSetActorDeathInstant(is_instant)
+    }
+}
+
+///
 ///  Set the sound of the temporary actor stored on the server.
 ///
 ///  `sound` The sound.
@@ -2077,6 +2662,20 @@ pub fn set_actor_fatigue_modified(value: c_double) {
 pub fn set_actor_sound(sound: &str) {
     unsafe {
         raw::rustSetActorSound(CString::new(sound).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Set the action type in the spells active changes of the temporary actor  
+///         stored on the server.
+///
+///  `action` The action (0 for SET, 1 for ADD, 2 for REMOVE).
+///
+///  Returns void
+///
+pub fn set_actor_spells_active_action(action: c_uchar) {
+    unsafe {
+        raw::rustSetActorSpellsActiveAction(action)
     }
 }
 
@@ -2138,7 +2737,7 @@ pub fn set_actor_ai_coordinates(x: c_double, y: c_double, z: c_double) {
 ///
 ///  Set the distance of the AI package associated with the current AI action.
 ///
-///  `duration` The distance of the package.
+///  `distance` The distance of the package.
 ///
 ///  Returns void
 ///
@@ -2205,6 +2804,41 @@ pub fn equip_actor_item(slot: c_ushort, ref_id: &str, count: c_uint, charge: c_i
 pub fn unequip_actor_item(slot: c_ushort) {
     unsafe {
         raw::rustUnequipActorItem(slot)
+    }
+}
+
+///
+///  Add a new active spell to the spells active changes for the temporary actor stored,  
+///         on the server, using the temporary effect values stored so far.
+///
+///  `spell_id` The spellId of the spell.  
+///  `display_name` The displayName of the spell.  
+///  `stacking_state` Whether the spell should stack with other instances of itself.
+///
+///  Returns void
+///
+pub fn add_actor_spell_active(spell_id: &str, display_name: &str, stacking_state: bool) {
+    unsafe {
+        raw::rustAddActorSpellActive(CString::new(spell_id).unwrap_or_default().as_ptr(), CString::new(display_name).unwrap_or_default().as_ptr(), stacking_state)
+    }
+}
+
+///
+///  Add a new effect to the next active spell that will be added to the temporary actor  
+///         stored on the server.
+///
+///  `effect_id` The id of the effect.  
+///  `magnitude` The magnitude of the effect.  
+///  `duration` The duration of the effect.  
+///  `time_left` The timeLeft for the effect.  
+///  `arg` The arg of the effect when applicable, e.g. the skill used for Fortify Skill or the attribute  
+///             used for Fortify Attribute.
+///
+///  Returns void
+///
+pub fn add_actor_spell_active_effect(effect_id: c_int, magnitude: c_double, duration: c_double, time_left: c_double, arg: c_int) {
+    unsafe {
+        raw::rustAddActorSpellActiveEffect(effect_id, magnitude, duration, time_left, arg)
     }
 }
 
@@ -2306,6 +2940,23 @@ pub fn send_actor_equipment(send_to_other_visitors: bool, skip_attached_player: 
 }
 
 ///
+///  Send an ActorSpellsActive packet.
+///
+///  `send_to_other_visitors` Whether this packet should be sent to cell visitors other  
+///                             than the player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///
+///  Returns void
+///
+pub fn send_actor_spells_active_changes(send_to_other_visitors: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendActorSpellsActiveChanges(send_to_other_visitors, skip_attached_player)
+    }
+}
+
+///
 ///  Send an ActorSpeech packet.
 ///
 ///  `send_to_other_visitors` Whether this packet should be sent to cell visitors other  
@@ -2318,6 +2969,22 @@ pub fn send_actor_equipment(send_to_other_visitors: bool, skip_attached_player: 
 pub fn send_actor_speech(send_to_other_visitors: bool, skip_attached_player: bool) {
     unsafe {
         raw::rustSendActorSpeech(send_to_other_visitors, skip_attached_player)
+    }
+}
+
+///
+///  Send an ActorDeath packet.
+///
+///  `send_to_other_visitors` Whether this packet should be sent to cell visitors other  
+///                             than the player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_actor_death(send_to_other_visitors: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendActorDeath(send_to_other_visitors, skip_attached_player)
     }
 }
 
@@ -2908,27 +3575,27 @@ pub fn send_message(pid: c_ushort, message: &str, send_to_other_players: bool, s
 }
 
 ///
-///  Remove all messages from chat for everyone on the server.
-///
-///
-///  Returns void
-///
-pub fn clean_chat_for_pid() {
-    unsafe {
-        raw::rustCleanChatForPid()
-    }
-}
-
-///
 ///  Remove all messages from chat for a certain player.
 ///
 ///  `pid` The player ID.
 ///
 ///  Returns void
 ///
-pub fn clean_chat(pid: c_ushort) {
+pub fn clean_chat_for_pid(pid: c_ushort) {
     unsafe {
-        raw::rustCleanChat(pid)
+        raw::rustCleanChatForPid(pid)
+    }
+}
+
+///
+///  Remove all messages from chat for everyone on the server.
+///
+///
+///  Returns void
+///
+pub fn clean_chat() {
+    unsafe {
+        raw::rustCleanChat()
     }
 }
 
@@ -3016,7 +3683,7 @@ pub fn send_topic_changes(pid: c_ushort, send_to_other_players: bool, skip_attac
 ///  `groupname` The groupname of the animation.  
 ///  `mode` The mode of the animation.  
 ///  `count` The number of times the animation should be played.  
-///  `bool` Whether the animation should persist or not.
+///  `persist` Whether the animation should persist or not.
 ///
 ///  Returns void
 ///
@@ -3400,7 +4067,7 @@ pub fn get_quick_key_item_id(pid: c_ushort, index: c_uint) -> String {
 ///
 ///  `pid` The player ID whose quick key changes should be used.  
 ///  `slot` The slot to be used.  
-///  `slot` The type of the quick key (0 for ITEM, 1 for ITEM_MAGIC, 2 for MAGIC, 3 for UNASSIGNED).  
+///  `_type` The type of the quick key (0 for ITEM, 1 for ITEM_MAGIC, 2 for MAGIC, 3 for UNASSIGNED).  
 ///  `item_id` The itemId of the item.
 ///
 ///  Returns void
@@ -3489,6 +4156,19 @@ pub fn clear_inventory_changes(pid: c_ushort) {
 pub fn get_equipment_size() -> c_int {
     unsafe {
         raw::rustGetEquipmentSize()
+    }
+}
+
+///
+///  Get the number of indexes in a player's latest equipment changes.
+///
+///  `pid` The player ID whose equipment changes should be used.
+///
+///  Returns the number of indexes.
+///
+pub fn get_equipment_changes_size(pid: c_ushort) -> c_uint {
+    unsafe {
+        raw::rustGetEquipmentChangesSize(pid)
     }
 }
 
@@ -3593,6 +4273,21 @@ pub fn add_item_change(pid: c_ushort, ref_id: &str, count: c_uint, charge: c_int
 pub fn has_item_equipped(pid: c_ushort, ref_id: &str) -> bool {
     unsafe {
         raw::rustHasItemEquipped(pid, CString::new(ref_id).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Get the slot used for the equipment item at a specific index in the most recent  
+///  equipment changes.
+///
+///  `pid` The player ID.  
+///  `change_index` The index of the equipment change.
+///
+///  Returns the slot.
+///
+pub fn get_equipment_changes_slot(pid: c_ushort, change_index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetEquipmentChangesSlot(pid, change_index)
     }
 }
 
@@ -3862,6 +4557,19 @@ pub fn initialize_inventory_changes(pid: c_ushort) {
 pub fn add_item(pid: c_ushort, ref_id: &str, count: c_uint, charge: c_int, enchantment_charge: c_double, soul: &str) {
     unsafe {
         raw::rustAddItem(pid, CString::new(ref_id).unwrap_or_default().as_ptr(), count, charge, enchantment_charge, CString::new(soul).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Clear the list of players who will be regarded as being player's allies.
+///
+///  `pid` The player ID.
+///
+///  Returns void
+///
+pub fn clear_allied_players_for_player(pid: c_ushort) {
+    unsafe {
+        raw::rustClearAlliedPlayersForPlayer(pid)
     }
 }
 
@@ -4161,6 +4869,20 @@ pub fn set_selected_spell_id(pid: c_ushort, spell_id: &str) {
 }
 
 ///
+///  Add an ally to a player's list of allied players.
+///
+///  `pid` The player ID.  
+///  `allied_player_pid` The ally's player ID.
+///
+///  Returns void
+///
+pub fn add_allied_player_for_player(pid: c_ushort, allied_player_pid: c_ushort) {
+    unsafe {
+        raw::rustAddAlliedPlayerForPlayer(pid, allied_player_pid)
+    }
+}
+
+///
 ///  Send a PlayerMiscellaneous packet with a Mark location to a player.
 ///
 ///  `pid` The player ID.
@@ -4187,6 +4909,21 @@ pub fn send_selected_spell(pid: c_ushort) {
 }
 
 ///
+///  Send a PlayerAlly packet with a list of team member IDs to a player.
+///
+///  `pid` The player ID.  
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_allied_players(pid: c_ushort, send_to_other_players: bool) {
+    unsafe {
+        raw::rustSendAlliedPlayers(pid, send_to_other_players)
+    }
+}
+
+///
 ///  Send a PlayerJail packet about a player.
 ///
 ///  This is similar to the player being jailed by a guard, but provides extra parameters for  
@@ -4199,9 +4936,9 @@ pub fn send_selected_spell(pid: c_ushort) {
 ///  `jail_days` The number of days to spend jailed, where each day affects one skill point.  
 ///  `ignore_jail_teleportation` Whether the player being teleported to the nearest jail  
 ///                                 marker should be overridden.  
-///  `ignore_jail_skill_increase` Whether the player's Sneak and Security skills should be  
-///                                 prevented from increasing as a result of the jailing,  
-///                                 overriding default behavior.  
+///  `ignore_jail_skill_increases` Whether the player's Sneak and Security skills should be  
+///                                  prevented from increasing as a result of the jailing,  
+///                                  overriding default behavior.  
 ///  `jail_progress_text` The text that should be displayed while jailed.  
 ///  `jail_end_text` The text that should be displayed once the jailing period is over.
 ///
@@ -4246,7 +4983,42 @@ pub fn get_player_killer_ref_num_index(pid: c_ushort) -> c_uint {
 }
 
 ///
-///  Get the last player ID currently connected to the server.
+///  Generate a random string of a particular length that only contains  
+///         letters and numbers.
+///
+///  `length` The length of the generated string.
+///
+///  Returns the generated string.
+///
+pub fn generate_random_string(length: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGenerateRandomString(length))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the SHA256 hash corresponding to an input string.  
+///  \details function is not reentrant due to a static variable
+///
+///  `input_string` The input string.
+///
+///  Returns the SHA256 hash.
+///
+pub fn get_sha256_hash(input_string: &str) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetSHA256Hash(CString::new(input_string).unwrap_or_default().as_ptr()))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the last player ID currently connected to the server.  
+///  \details function is not reentrant due to a static variable
 ///
 ///  Every player receives a unique numerical index known as their player ID upon joining the  
 ///  server.
@@ -4504,21 +5276,6 @@ pub fn clear_journal_changes(pid: c_ushort) {
 }
 
 ///
-///  Clear the last recorded kill count changes for a player.
-///
-///  This is used to initialize the sending of new WorldKillCount packets.
-///
-///  `pid` The player ID whose kill count changes should be used.
-///
-///  Returns void
-///
-pub fn clear_kill_changes(pid: c_ushort) {
-    unsafe {
-        raw::rustClearKillChanges(pid)
-    }
-}
-
-///
 ///  Get the number of indexes in a player's latest journal changes.
 ///
 ///  `pid` The player ID whose journal changes should be used.
@@ -4528,19 +5285,6 @@ pub fn clear_kill_changes(pid: c_ushort) {
 pub fn get_journal_changes_size(pid: c_ushort) -> c_uint {
     unsafe {
         raw::rustGetJournalChangesSize(pid)
-    }
-}
-
-///
-///  Get the number of indexes in a player's latest kill count changes.
-///
-///  `pid` The player ID whose kill count changes should be used.
-///
-///  Returns the number of indexes.
-///
-pub fn get_kill_changes_size(pid: c_ushort) -> c_uint {
-    unsafe {
-        raw::rustGetKillChangesSize(pid)
     }
 }
 
@@ -4569,9 +5313,9 @@ pub fn add_journal_entry(pid: c_ushort, quest: &str, index: c_uint, actor_ref_id
 ///  `quest` The quest of the journal item.  
 ///  `index` The quest index of the journal item.  
 ///  `actor_ref_id` The actor refId of the journal item.  
-///  `the` daysPassed for the journal item.  
-///  `the` month for the journal item.  
-///  `the` day of the month for the journal item.
+///  `days_passed` The daysPassed for the journal item.  
+///  `month` The month for the journal item.  
+///  `day` The day of the month for the journal item.
 ///
 ///  Returns void
 ///
@@ -4593,21 +5337,6 @@ pub fn add_journal_entry_with_timestamp(pid: c_ushort, quest: &str, index: c_uin
 pub fn add_journal_index(pid: c_ushort, quest: &str, index: c_uint) {
     unsafe {
         raw::rustAddJournalIndex(pid, CString::new(quest).unwrap_or_default().as_ptr(), index)
-    }
-}
-
-///
-///  Add a new kill count to the kill count changes for a player.
-///
-///  `pid` The player ID whose kill count changes should be used.  
-///  `ref_id` The refId of the kill count.  
-///  `number` The number of kills in the kill count.
-///
-///  Returns void
-///
-pub fn add_kill(pid: c_ushort, ref_id: &str, number: c_int) {
-    unsafe {
-        raw::rustAddKill(pid, CString::new(ref_id).unwrap_or_default().as_ptr(), number)
     }
 }
 
@@ -4690,37 +5419,6 @@ pub fn get_journal_item_actor_ref_id(pid: c_ushort, index: c_uint) -> String {
 }
 
 ///
-///  Get the refId at a certain index in a player's latest kill count changes.
-///
-///  `pid` The player ID whose kill count changes should be used.  
-///  `index` The index of the kill count.
-///
-///  Returns the refId.
-///
-pub fn get_kill_ref_id(pid: c_ushort, index: c_uint) -> String {
-    unsafe {
-        CStr::from_ptr(raw::rustGetKillRefId(pid, index))
-            .to_str()
-            .unwrap_or_default()
-            .to_string()
-    }
-}
-
-///
-///  Get the number of kills at a certain index in a player's latest kill count changes.
-///
-///  `pid` The player ID whose kill count changes should be used.  
-///  `index` The index of the kill count.
-///
-///  Returns the number of kills.
-///
-pub fn get_kill_number(pid: c_ushort, index: c_uint) -> c_int {
-    unsafe {
-        raw::rustGetKillNumber(pid, index)
-    }
-}
-
-///
 ///  Get the a certain player's reputation.
 ///
 ///  `pid` The player ID.
@@ -4751,23 +5449,6 @@ pub fn send_journal_changes(pid: c_ushort, send_to_other_players: bool, skip_att
 }
 
 ///
-///  Send a WorldKillCount packet with a player's recorded kill count changes.
-///
-///  `pid` The player ID whose kill count changes should be used.  
-///  `send_to_other_players` Whether this packet should be sent to players other than the  
-///                            player attached to the packet (false by default).  
-///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
-///                            to the packet (false by default).
-///
-///  Returns void
-///
-pub fn send_kill_changes(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
-    unsafe {
-        raw::rustSendKillChanges(pid, send_to_other_players, skip_attached_player)
-    }
-}
-
-///
 ///  Send a PlayerReputation packet with a player's recorded reputation.
 ///
 ///  `pid` The player ID whose reputation should be used.  
@@ -4787,12 +5468,6 @@ pub fn send_reputation(pid: c_ushort, send_to_other_players: bool, skip_attached
 pub fn initialize_journal_changes(pid: c_ushort) {
     unsafe {
         raw::rustInitializeJournalChanges(pid)
-    }
-}
-
-pub fn initialize_kill_changes(pid: c_ushort) {
-    unsafe {
-        raw::rustInitializeKillChanges(pid)
     }
 }
 
@@ -5080,6 +5755,20 @@ pub fn get_record_weight(index: c_uint) -> c_double {
 }
 
 ///
+///  Get the quantity of the record at a certain index in the read worldstate's  
+///  dynamic records of the current type.
+///
+///  `index` The index of the record.
+///
+///  Returns the brewed count of the record.
+///
+pub fn get_record_quantity(index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetRecordQuantity(index)
+    }
+}
+
+///
 ///  Get the ID of the effect at a certain index in the read worldstate's  
 ///  current records.
 ///
@@ -5261,7 +5950,7 @@ pub fn set_record_inventory_base_id(inventory_base_id: &str) {
 ///  Set the subtype of the temporary record stored on the server for  
 ///  the currently specified record type.
 ///
-///  `_type` The spell type.
+///  `subtype` The spell type.
 ///
 ///  Returns void
 ///
@@ -5436,6 +6125,78 @@ pub fn set_record_value(value: c_int) {
 pub fn set_record_weight(weight: c_double) {
     unsafe {
         raw::rustSetRecordWeight(weight)
+    }
+}
+
+///
+///  Set the item quality of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `quality` The quality of the record.
+///
+///  Returns void
+///
+pub fn set_record_quality(quality: c_double) {
+    unsafe {
+        raw::rustSetRecordQuality(quality)
+    }
+}
+
+///
+///  Set the number of uses of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `uses` The number of uses of the record.
+///
+///  Returns void
+///
+pub fn set_record_uses(uses: c_int) {
+    unsafe {
+        raw::rustSetRecordUses(uses)
+    }
+}
+
+///
+///  Set the time of the temporary record stored on the server for the currently  
+///  specified record type.
+///
+///  `time` The time of the record.
+///
+///  Returns void
+///
+pub fn set_record_time(time: c_int) {
+    unsafe {
+        raw::rustSetRecordTime(time)
+    }
+}
+
+///
+///  Set the radius of the temporary record stored on the server for the currently  
+///  specified record type.
+///
+///  `radius` The radius of the record.
+///
+///  Returns void
+///
+pub fn set_record_radius(radius: c_int) {
+    unsafe {
+        raw::rustSetRecordRadius(radius)
+    }
+}
+
+///
+///  Set the color of the temporary record stored on the server for the currently  
+///  specified record type.
+///
+///  `red` The red value of the record.  
+///  `green` The green value of the record.  
+///  `blue` The blue value of the record.
+///
+///  Returns void
+///
+pub fn set_record_color(red: c_uint, green: c_uint, blue: c_uint) {
+    unsafe {
+        raw::rustSetRecordColor(red, green, blue)
     }
 }
 
@@ -5618,7 +6379,7 @@ pub fn set_record_hair(hair: &str) {
 ///  Set the head of the temporary record stored on the server for the  
 ///  currently specified record type.
 ///
-///  `hair` The head of the record.
+///  `head` The head of the record.
 ///
 ///  Returns void
 ///
@@ -5632,7 +6393,7 @@ pub fn set_record_head(head: &str) {
 ///  Set the gender of the temporary record stored on the server for the  
 ///  currently specified record type (0 for female, 1 for male).
 ///
-///  `hair` The race of the record.
+///  `gender` The gender of the record.
 ///
 ///  Returns void
 ///
@@ -5646,7 +6407,7 @@ pub fn set_record_gender(gender: c_uint) {
 ///  Set the race of the temporary record stored on the server for the  
 ///  currently specified record type.
 ///
-///  `hair` The race of the record.
+///  `race` The race of the record.
 ///
 ///  Returns void
 ///
@@ -5660,7 +6421,7 @@ pub fn set_record_race(race: &str) {
 ///  Set the character class of the temporary record stored on the server  
 ///  for the currently specified record type.
 ///
-///  `hair` The character class of the record.
+///  `char_class` The character class of the record.
 ///
 ///  Returns void
 ///
@@ -5681,6 +6442,48 @@ pub fn set_record_class(char_class: &str) {
 pub fn set_record_faction(faction: &str) {
     unsafe {
         raw::rustSetRecordFaction(CString::new(faction).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Set the scale of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `scale` The scale of the record.
+///
+///  Returns void
+///
+pub fn set_record_scale(scale: c_double) {
+    unsafe {
+        raw::rustSetRecordScale(scale)
+    }
+}
+
+///
+///  Set the blood type of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `blood_type` The blood type of the record.
+///
+///  Returns void
+///
+pub fn set_record_blood_type(blood_type: c_int) {
+    unsafe {
+        raw::rustSetRecordBloodType(blood_type)
+    }
+}
+
+///
+///  Set the vampire state of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `vampire_state` The vampire state of the record.
+///
+///  Returns void
+///
+pub fn set_record_vampire_state(vampire_state: bool) {
+    unsafe {
+        raw::rustSetRecordVampireState(vampire_state)
     }
 }
 
@@ -5727,6 +6530,20 @@ pub fn set_record_fatigue(fatigue: c_int) {
 }
 
 ///
+///  Set the soul value of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `soul_value` The soul value of the record.
+///
+///  Returns void
+///
+pub fn set_record_soul_value(soul_value: c_int) {
+    unsafe {
+        raw::rustSetRecordSoulValue(soul_value)
+    }
+}
+
+///
 ///  Set the AI fight value of the temporary record stored on the server for the  
 ///  currently specified record type.
 ///
@@ -5737,6 +6554,188 @@ pub fn set_record_fatigue(fatigue: c_int) {
 pub fn set_record_ai_fight(ai_fight: c_int) {
     unsafe {
         raw::rustSetRecordAIFight(ai_fight)
+    }
+}
+
+///
+///  Set the AI flee value of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `ai_flee` The AI flee value of the record.
+///
+///  Returns void
+///
+pub fn set_record_ai_flee(ai_flee: c_int) {
+    unsafe {
+        raw::rustSetRecordAIFlee(ai_flee)
+    }
+}
+
+///
+///  Set the AI alarm value of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `ai_alarm` The AI alarm value of the record.
+///
+///  Returns void
+///
+pub fn set_record_ai_alarm(ai_alarm: c_int) {
+    unsafe {
+        raw::rustSetRecordAIAlarm(ai_alarm)
+    }
+}
+
+///
+///  Set the AI services value of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `ai_services` The AI services value of the record.
+///
+///  Returns void
+///
+pub fn set_record_ai_services(ai_services: c_int) {
+    unsafe {
+        raw::rustSetRecordAIServices(ai_services)
+    }
+}
+
+///
+///  Set the sound of the temporary record stored on the server for the currently  
+///  specified record type.
+///
+///  `sound` The sound of the record.
+///
+///  Returns void
+///
+pub fn set_record_sound(sound: &str) {
+    unsafe {
+        raw::rustSetRecordSound(CString::new(sound).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Set the volume of the temporary record stored on the server for the currently  
+///  specified record type.
+///
+///  `volume` The volume of the record.
+///
+///  Returns void
+///
+pub fn set_record_volume(volume: c_double) {
+    unsafe {
+        raw::rustSetRecordVolume(volume)
+    }
+}
+
+///
+///  Set the minimum range of the temporary record stored on the server for the currently  
+///  specified record type.
+///
+///  `min_range` The minimum range of the record.
+///
+///  Returns void
+///
+pub fn set_record_min_range(min_range: c_double) {
+    unsafe {
+        raw::rustSetRecordMinRange(min_range)
+    }
+}
+
+///
+///  Set the maximum range of the temporary record stored on the server for the currently  
+///  specified record type.
+///
+///  `max_range` The maximum range of the record.
+///
+///  Returns void
+///
+pub fn set_record_max_range(max_range: c_double) {
+    unsafe {
+        raw::rustSetRecordMaxRange(max_range)
+    }
+}
+
+///
+///  Set the opening sound of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `sound` The opening sound of the record.
+///
+///  Returns void
+///
+pub fn set_record_open_sound(sound: &str) {
+    unsafe {
+        raw::rustSetRecordOpenSound(CString::new(sound).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Set the closing sound of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `sound` The closing sound of the record.
+///
+///  Returns void
+///
+pub fn set_record_close_sound(sound: &str) {
+    unsafe {
+        raw::rustSetRecordCloseSound(CString::new(sound).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Set the script text of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `script_text` The script text of the record.
+///
+///  Returns void
+///
+pub fn set_record_script_text(script_text: &str) {
+    unsafe {
+        raw::rustSetRecordScriptText(CString::new(script_text).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Set the integer variable of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `int_var` The integer variable of the record.
+///
+///  Returns void
+///
+pub fn set_record_integer_variable(int_var: c_int) {
+    unsafe {
+        raw::rustSetRecordIntegerVariable(int_var)
+    }
+}
+
+///
+///  Set the float variable of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `float_var` The float variable of the record.
+///
+///  Returns void
+///
+pub fn set_record_float_variable(float_var: c_double) {
+    unsafe {
+        raw::rustSetRecordFloatVariable(float_var)
+    }
+}
+
+///
+///  Set the string variable of the temporary record stored on the server for the  
+///  currently specified record type.
+///
+///  `string_var` The string variable of the record.
+///
+///  Returns void
+///
+pub fn set_record_string_variable(string_var: &str) {
+    unsafe {
+        raw::rustSetRecordStringVariable(CString::new(string_var).unwrap_or_default().as_ptr())
     }
 }
 
@@ -5883,7 +6882,9 @@ pub fn set_record_effect_magnitude_min(magnitude_min: c_int) {
 }
 
 ///
-///  Set the type of the temporary body part stored on the server.
+///  Set the body part type of the temporary body part stored on the server  
+///  (which then needs to be added to ARMOR or CLOTHING records) or set the body part  
+///  type of the current record if it's a BODYPART.
 ///
 ///  `part_type` The type of the body part.
 ///
@@ -5926,7 +6927,7 @@ pub fn set_record_body_part_id_for_female(part_id: &str) {
 ///
 ///  Set the id of the of the temporary inventory item stored on the server.
 ///
-///  `part_id` The id of the inventory item.
+///  `item_id` The id of the inventory item.
 ///
 ///  Returns void
 ///
@@ -6134,9 +7135,7 @@ pub fn set_werewolf_state(pid: c_ushort, is_werewolf: bool) {
 ///  does not by itself send a packet.
 ///
 ///  `pid` The player ID.  
-///  `ref_id` The creature refId.  
-///  `displays_creature_name` Whether the player's name appears as that of the creature  
-///                              when hovered over by others.
+///  `ref_id` The creature refId.
 ///
 ///  Returns void
 ///
@@ -6444,7 +7443,8 @@ pub fn get_port() -> c_ushort {
 ///
 ///  Checking if the server requires a password to connect.
 ///
-///  @return
+///
+///  Returns whether the server requires a password
 ///
 pub fn has_password() -> bool {
     unsafe {
@@ -6483,7 +7483,7 @@ pub fn get_script_error_ignoring_state() -> bool {
 ///
 ///  Set the game mode of the server, as displayed in the server browser.
 ///
-///  `name` The new game mode.
+///  `game_mode` The new game mode.
 ///
 ///  Returns void
 ///
@@ -6756,15 +7756,79 @@ pub fn set_wait_allowed(pid: c_ushort, state: bool) {
 }
 
 ///
+///  Set value for a game setting.
+///
+///  This overrides the setting value set in OpenMW Launcher. Only applies to the Game category.
+///
+///  `pid` The player ID.  
+///  `setting` Name of a setting in the Game category  
+///  `value` Value of the setting (as a string)
+///
+///  Returns void
+///
+pub fn set_game_setting_value(pid: c_ushort, setting: &str, value: &str) {
+    unsafe {
+        raw::rustSetGameSettingValue(pid, CString::new(setting).unwrap_or_default().as_ptr(), CString::new(value).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Clear the Game setting values stored for a player.
+///
+///  Clear any changes done by SetGameSettingValue()
+///
+///  `pid` The player ID.
+///
+///  Returns void
+///
+pub fn clear_game_setting_values(pid: c_ushort) {
+    unsafe {
+        raw::rustClearGameSettingValues(pid)
+    }
+}
+
+///
+///  Set value for a VR setting.
+///
+///  This overrides the setting value set in OpenMW Launcher. Only applies to the VR category.
+///
+///  `pid` The player ID.  
+///  `setting` Name of a setting in the VR category  
+///  `value` Value of the setting (as a string)
+///
+///  Returns void
+///
+pub fn set_v_r_setting_value(pid: c_ushort, setting: &str, value: &str) {
+    unsafe {
+        raw::rustSetVRSettingValue(pid, CString::new(setting).unwrap_or_default().as_ptr(), CString::new(value).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Clear the VR setting values stored for a player.
+///
+///  Clear any changes done by SetVRSettingValue()
+///
+///  `pid` The player ID.
+///
+///  Returns void
+///
+pub fn clear_v_r_setting_values(pid: c_ushort) {
+    unsafe {
+        raw::rustClearVRSettingValues(pid)
+    }
+}
+
+///
 ///  Send a PlayerSettings packet to the player affected by it.
 ///
 ///  `pid` The player ID to send it to.
 ///
 ///  Returns void
 ///
-pub fn send_settings(pid: c_ushort) {
+pub fn send_settings(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
     unsafe {
-        raw::rustSendSettings(pid)
+        raw::rustSendSettings(pid, send_to_other_players, skip_attached_player)
     }
 }
 
@@ -6780,6 +7844,36 @@ pub fn send_settings(pid: c_ushort) {
 pub fn clear_spellbook_changes(pid: c_ushort) {
     unsafe {
         raw::rustClearSpellbookChanges(pid)
+    }
+}
+
+///
+///  Clear the last recorded spells active changes for a player.
+///
+///  This is used to initialize the sending of new PlayerSpellsActive packets.
+///
+///  `pid` The player ID whose spells active changes should be used.
+///
+///  Returns void
+///
+pub fn clear_spells_active_changes(pid: c_ushort) {
+    unsafe {
+        raw::rustClearSpellsActiveChanges(pid)
+    }
+}
+
+///
+///  Clear the last recorded cooldown changes for a player.
+///
+///  This is used to initialize the sending of new PlayerCooldown packets.
+///
+///  `pid` The player ID whose cooldown changes should be used.
+///
+///  Returns void
+///
+pub fn clear_cooldown_changes(pid: c_ushort) {
+    unsafe {
+        raw::rustClearCooldownChanges(pid)
     }
 }
 
@@ -6810,6 +7904,45 @@ pub fn get_spellbook_changes_action(pid: c_ushort) -> c_uint {
 }
 
 ///
+///  Get the number of indexes in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.
+///
+///  Returns the number of indexes for spells active changes.
+///
+pub fn get_spells_active_changes_size(pid: c_ushort) -> c_uint {
+    unsafe {
+        raw::rustGetSpellsActiveChangesSize(pid)
+    }
+}
+
+///
+///  Get the action type used in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.
+///
+///  Returns the action type (0 for SET, 1 for ADD, 2 for REMOVE).
+///
+pub fn get_spells_active_changes_action(pid: c_ushort) -> c_uint {
+    unsafe {
+        raw::rustGetSpellsActiveChangesAction(pid)
+    }
+}
+
+///
+///  Get the number of indexes in a player's latest cooldown changes.
+///
+///  `pid` The player ID whose cooldown changes should be used.
+///
+///  Returns the number of indexes.
+///
+pub fn get_cooldown_changes_size(pid: c_ushort) -> c_uint {
+    unsafe {
+        raw::rustGetCooldownChangesSize(pid)
+    }
+}
+
+///
 ///  Set the action type in a player's spellbook changes.
 ///
 ///  `pid` The player ID whose spellbook changes should be used.  
@@ -6820,6 +7953,20 @@ pub fn get_spellbook_changes_action(pid: c_ushort) -> c_uint {
 pub fn set_spellbook_changes_action(pid: c_ushort, action: c_uchar) {
     unsafe {
         raw::rustSetSpellbookChangesAction(pid, action)
+    }
+}
+
+///
+///  Set the action type in a player's spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `action` The action (0 for SET, 1 for ADD, 2 for REMOVE).
+///
+///  Returns void
+///
+pub fn set_spells_active_changes_action(pid: c_ushort, action: c_uchar) {
+    unsafe {
+        raw::rustSetSpellsActiveChangesAction(pid, action)
     }
 }
 
@@ -6838,12 +7985,64 @@ pub fn add_spell(pid: c_ushort, spell_id: &str) {
 }
 
 ///
-///  Get the spellId at a certain index in a player's latest spellbook changes.
+///  Add a new active spell to the spells active changes for a player,  
+///         using the temporary effect values stored so far.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `spell_id` The spellId of the spell.  
+///  `display_name` The displayName of the spell.  
+///  `stacking_state` Whether the spell should stack with other instances of itself.
+///
+///  Returns void
+///
+pub fn add_spell_active(pid: c_ushort, spell_id: &str, display_name: &str, stacking_state: bool) {
+    unsafe {
+        raw::rustAddSpellActive(pid, CString::new(spell_id).unwrap_or_default().as_ptr(), CString::new(display_name).unwrap_or_default().as_ptr(), stacking_state)
+    }
+}
+
+///
+///  Add a new effect to the next active spell that will be added to a player.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `effect_id` The id of the effect.  
+///  `magnitude` The magnitude of the effect.  
+///  `duration` The duration of the effect.  
+///  `time_left` The timeLeft for the effect.  
+///  `arg` The arg of the effect when applicable, e.g. the skill used for Fortify Skill or the attribute  
+///             used for Fortify Attribute.
+///
+///  Returns void
+///
+pub fn add_spell_active_effect(pid: c_ushort, effect_id: c_int, magnitude: c_double, duration: c_double, time_left: c_double, arg: c_int) {
+    unsafe {
+        raw::rustAddSpellActiveEffect(pid, effect_id, magnitude, duration, time_left, arg)
+    }
+}
+
+///
+///  Add a new cooldown spell to the cooldown changes for a player.
+///
+///  `pid` The player ID whose cooldown changes should be used.  
+///  `spell_id` The spellId of the spell.  
+///  `start_day` The day on which the cooldown starts.  
+///  `start_hour` The hour at which the cooldown starts.
+///
+///  Returns void
+///
+pub fn add_cooldown_spell(pid: c_ushort, spell_id: &str, start_day: c_uint, start_hour: c_double) {
+    unsafe {
+        raw::rustAddCooldownSpell(pid, CString::new(spell_id).unwrap_or_default().as_ptr(), start_day, start_hour)
+    }
+}
+
+///
+///  Get the spell id at a certain index in a player's latest spellbook changes.
 ///
 ///  `pid` The player ID whose spellbook changes should be used.  
 ///  `index` The index of the spell.
 ///
-///  Returns the spellId.
+///  Returns the spell id.
 ///
 pub fn get_spell_id(pid: c_ushort, index: c_uint) -> String {
     unsafe {
@@ -6851,6 +8050,262 @@ pub fn get_spell_id(pid: c_ushort, index: c_uint) -> String {
             .to_str()
             .unwrap_or_default()
             .to_string()
+    }
+}
+
+///
+///  Get the spell id at a certain index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns the spell id.
+///
+pub fn get_spells_active_id(pid: c_ushort, index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetSpellsActiveId(pid, index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the spell display name at a certain index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns the spell display name.
+///
+pub fn get_spells_active_display_name(pid: c_ushort, index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetSpellsActiveDisplayName(pid, index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the spell stacking state at a certain index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns the spell stacking state.
+///
+pub fn get_spells_active_stacking_state(pid: c_ushort, index: c_uint) -> bool {
+    unsafe {
+        raw::rustGetSpellsActiveStackingState(pid, index)
+    }
+}
+
+///
+///  Get the number of effects at an index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns the number of effects.
+///
+pub fn get_spells_active_effect_count(pid: c_ushort, index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetSpellsActiveEffectCount(pid, index)
+    }
+}
+
+///
+///  Get the id for an effect index at a spell index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the id of the effect.
+///
+pub fn get_spells_active_effect_id(pid: c_ushort, spell_index: c_uint, effect_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetSpellsActiveEffectId(pid, spell_index, effect_index)
+    }
+}
+
+///
+///  Get the arg for an effect index at a spell index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the arg of the effect.
+///
+pub fn get_spells_active_effect_arg(pid: c_ushort, spell_index: c_uint, effect_index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetSpellsActiveEffectArg(pid, spell_index, effect_index)
+    }
+}
+
+///
+///  Get the magnitude for an effect index at a spell index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the magnitude of the effect.
+///
+pub fn get_spells_active_effect_magnitude(pid: c_ushort, spell_index: c_uint, effect_index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetSpellsActiveEffectMagnitude(pid, spell_index, effect_index)
+    }
+}
+
+///
+///  Get the duration for an effect index at a spell index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the duration of the effect.
+///
+pub fn get_spells_active_effect_duration(pid: c_ushort, spell_index: c_uint, effect_index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetSpellsActiveEffectDuration(pid, spell_index, effect_index)
+    }
+}
+
+///
+///  Get the time left for an effect index at a spell index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `spell_index` The index of the spell.  
+///  `effect_index` The index of the effect.
+///
+///  Returns the time left for the effect.
+///
+pub fn get_spells_active_effect_time_left(pid: c_ushort, spell_index: c_uint, effect_index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetSpellsActiveEffectTimeLeft(pid, spell_index, effect_index)
+    }
+}
+
+///
+///  Check whether the spell at a certain index in a player's latest spells active changes has a player  
+///         as its caster.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns whether a player is the caster of the spell.
+///
+pub fn does_spells_active_have_player_caster(pid: c_ushort, index: c_uint) -> bool {
+    unsafe {
+        raw::rustDoesSpellsActiveHavePlayerCaster(pid, index)
+    }
+}
+
+///
+///  Get the player ID of the caster of the spell at a certain index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns the player ID of the caster.
+///
+pub fn get_spells_active_caster_pid(pid: c_ushort, index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetSpellsActiveCasterPid(pid, index)
+    }
+}
+
+///
+///  Get the refId of the actor caster of the spell at a certain index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns the refId of the caster.
+///
+pub fn get_spells_active_caster_ref_id(pid: c_ushort, index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetSpellsActiveCasterRefId(pid, index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the refNum of the actor caster of the spell at a certain index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns the refNum of the caster.
+///
+pub fn get_spells_active_caster_ref_num(pid: c_ushort, index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetSpellsActiveCasterRefNum(pid, index)
+    }
+}
+
+///
+///  Get the mpNum of the actor caster of the spell at a certain index in a player's latest spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `index` The index of the spell.
+///
+///  Returns the mpNum of the caster.
+///
+pub fn get_spells_active_caster_mp_num(pid: c_ushort, index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetSpellsActiveCasterMpNum(pid, index)
+    }
+}
+
+///
+///  Get the spell id at a certain index in a player's latest cooldown changes.
+///
+///  `pid` The player ID whose cooldown changes should be used.  
+///  `index` The index of the cooldown spell.
+///
+///  Returns the spell id.
+///
+pub fn get_cooldown_spell_id(pid: c_ushort, index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetCooldownSpellId(pid, index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the starting day of the cooldown at a certain index in a player's latest cooldown changes.
+///
+///  `pid` The player ID whose cooldown changes should be used.  
+///  `index` The index of the cooldown spell.
+///
+///  Returns the starting day of the cooldown.
+///
+pub fn get_cooldown_start_day(pid: c_ushort, index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetCooldownStartDay(pid, index)
+    }
+}
+
+///
+///  Get the starting hour of the cooldown at a certain index in a player's latest cooldown changes.
+///
+///  `pid` The player ID whose cooldown changes should be used.  
+///  `index` The index of the cooldown spell.
+///
+///  Returns the starting hour of the cooldown.
+///
+pub fn get_cooldown_start_hour(pid: c_ushort, index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetCooldownStartHour(pid, index)
     }
 }
 
@@ -6868,6 +8323,36 @@ pub fn get_spell_id(pid: c_ushort, index: c_uint) -> String {
 pub fn send_spellbook_changes(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
     unsafe {
         raw::rustSendSpellbookChanges(pid, send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send a PlayerSpellsActive packet with a player's recorded spells active changes.
+///
+///  `pid` The player ID whose spells active changes should be used.  
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_spells_active_changes(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendSpellsActiveChanges(pid, send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send a PlayerCooldowns packet with a player's recorded cooldown changes.
+///
+///  `pid` The player ID whose cooldown changes should be used.
+///
+///  Returns void
+///
+pub fn send_cooldown_changes(pid: c_ushort) {
+    unsafe {
+        raw::rustSendCooldownChanges(pid)
     }
 }
 
@@ -7045,6 +8530,22 @@ pub fn get_hair(pid: c_ushort) -> String {
 pub fn get_is_male(pid: c_ushort) -> c_int {
     unsafe {
         raw::rustGetIsMale(pid)
+    }
+}
+
+///
+///  Get the model of a player.
+///
+///  `pid` The player ID.
+///
+///  Returns the model of the player.
+///
+pub fn get_model(pid: c_ushort) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetModel(pid))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
     }
 }
 
@@ -7275,7 +8776,7 @@ pub fn get_skill_progress(pid: c_ushort, skill_id: c_ushort) -> c_double {
 ///  Although confusing, the term "skill increase" for this is taken from OpenMW itself.
 ///
 ///  `pid` The player ID.  
-///  `skill_id` The attribute ID.
+///  `attribute_id` The attribute ID.
 ///
 ///  Returns the increase in the attribute caused by skills.
 ///
@@ -7369,6 +8870,20 @@ pub fn set_is_male(pid: c_ushort, state: c_int) {
 }
 
 ///
+///  Set the model of a player.
+///
+///  `pid` The player ID.  
+///  `model` The new model of the player.
+///
+///  Returns void
+///
+pub fn set_model(pid: c_ushort, model: &str) {
+    unsafe {
+        raw::rustSetModel(pid, CString::new(model).unwrap_or_default().as_ptr())
+    }
+}
+
+///
 ///  Set the birthsign of a player.
 ///
 ///  `pid` The player ID.  
@@ -7432,7 +8947,7 @@ pub fn set_level_progress(pid: c_ushort, value: c_int) {
 ///  Set the base health of a player.
 ///
 ///  `pid` The player ID.  
-///  `name` The new base health of the player.
+///  `value` The new base health of the player.
 ///
 ///  Returns void
 ///
@@ -7446,7 +8961,7 @@ pub fn set_health_base(pid: c_ushort, value: c_double) {
 ///  Set the current health of a player.
 ///
 ///  `pid` The player ID.  
-///  `name` The new current health of the player.
+///  `value` The new current health of the player.
 ///
 ///  Returns void
 ///
@@ -7460,7 +8975,7 @@ pub fn set_health_current(pid: c_ushort, value: c_double) {
 ///  Set the base magicka of a player.
 ///
 ///  `pid` The player ID.  
-///  `name` The new base magicka of the player.
+///  `value` The new base magicka of the player.
 ///
 ///  Returns void
 ///
@@ -7474,7 +8989,7 @@ pub fn set_magicka_base(pid: c_ushort, value: c_double) {
 ///  Set the current magicka of a player.
 ///
 ///  `pid` The player ID.  
-///  `name` The new current magicka of the player.
+///  `value` The new current magicka of the player.
 ///
 ///  Returns void
 ///
@@ -7488,7 +9003,7 @@ pub fn set_magicka_current(pid: c_ushort, value: c_double) {
 ///  Set the base fatigue of a player.
 ///
 ///  `pid` The player ID.  
-///  `name` The new base fatigue of the player.
+///  `value` The new base fatigue of the player.
 ///
 ///  Returns void
 ///
@@ -7502,7 +9017,7 @@ pub fn set_fatigue_base(pid: c_ushort, value: c_double) {
 ///  Set the current fatigue of a player.
 ///
 ///  `pid` The player ID.  
-///  `name` The new current fatigue of the player.
+///  `value` The new current fatigue of the player.
 ///
 ///  Returns void
 ///
@@ -7634,7 +9149,7 @@ pub fn set_skill_progress(pid: c_ushort, skill_id: c_ushort, value: c_double) {
 ///  Although confusing, the term "skill increase" for this is taken from OpenMW itself.
 ///
 ///  `pid` The player ID.  
-///  `skill_id` The attribute ID.  
+///  `attribute_id` The attribute ID.  
 ///  `value` The increase in the attribute caused by skills.
 ///
 ///  Returns void
@@ -7851,8 +9366,6 @@ pub fn get_object_list_origin() -> c_uchar {
 ///
 ///  Get the client script that the read object list originated from.
 ///
-///  Note: This is not yet implemented.
-///
 ///
 ///  Returns the ID of the client script.
 ///
@@ -7874,6 +9387,21 @@ pub fn get_object_list_client_script() -> String {
 pub fn get_object_list_action() -> c_uchar {
     unsafe {
         raw::rustGetObjectListAction()
+    }
+}
+
+///
+///  Get the console command used in the read object list.
+///
+///
+///  Returns the console command.
+///
+pub fn get_object_list_console_command() -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetObjectListConsoleCommand())
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
     }
 }
 
@@ -8050,6 +9578,22 @@ pub fn get_object_scale(index: c_uint) -> c_double {
 }
 
 ///
+///  Get the object sound ID of the object at a certain index in the read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the object sound ID.
+///
+pub fn get_object_sound_id(index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetObjectSoundId(index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
 ///  Get the object state of the object at a certain index in the read object list.
 ///
 ///  `index` The index of the object.
@@ -8085,6 +9629,76 @@ pub fn get_object_door_state(index: c_uint) -> c_int {
 pub fn get_object_lock_level(index: c_uint) -> c_int {
     unsafe {
         raw::rustGetObjectLockLevel(index)
+    }
+}
+
+///
+///  Get the dialogue choice type for the object at a certain index in the read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the dialogue choice type.
+///
+pub fn get_object_dialogue_choice_type(index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetObjectDialogueChoiceType(index)
+    }
+}
+
+///
+///  Get the dialogue choice topic for the object at a certain index in the read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the dialogue choice topic.
+///
+pub fn get_object_dialogue_choice_topic(index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetObjectDialogueChoiceTopic(index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the gold pool of the object at a certain index in the read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the gold pool.
+///
+pub fn get_object_gold_pool(index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetObjectGoldPool(index)
+    }
+}
+
+///
+///  Get the hour of the last gold restock of the object at a certain index in the  
+///  read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the hour of the last gold restock.
+///
+pub fn get_object_last_gold_restock_hour(index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetObjectLastGoldRestockHour(index)
+    }
+}
+
+///
+///  Get the day of the last gold restock of the object at a certain index in the  
+///  read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the day of the last gold restock.
+///
+pub fn get_object_last_gold_restock_day(index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetObjectLastGoldRestockDay(index)
     }
 }
 
@@ -8179,6 +9793,152 @@ pub fn get_object_activating_name(index: c_uint) -> String {
 }
 
 ///
+///  Check whether the object at a certain index in the read object list has been  
+///         hit successfully.
+///
+///  `index` The index of the object.
+///
+///  Returns the success state.
+///
+pub fn get_object_hit_success(index: c_uint) -> bool {
+    unsafe {
+        raw::rustGetObjectHitSuccess(index)
+    }
+}
+
+///
+///  Get the damage caused to the object at a certain index in the read object list  
+///         in a hit.
+///
+///  `index` The index of the object.
+///
+///  Returns the damage.
+///
+pub fn get_object_hit_damage(index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetObjectHitDamage(index)
+    }
+}
+
+///
+///  Check whether the object at a certain index in the read object list has  
+///         blocked the hit on it.
+///
+///  `index` The index of the object.
+///
+///  Returns the block state.
+///
+pub fn get_object_hit_block(index: c_uint) -> bool {
+    unsafe {
+        raw::rustGetObjectHitBlock(index)
+    }
+}
+
+///
+///  Check whether the object at a certain index in the read object list has been  
+///         knocked down.
+///
+///  `index` The index of the object.
+///
+///  Returns the knockdown state.
+///
+pub fn get_object_hit_knockdown(index: c_uint) -> bool {
+    unsafe {
+        raw::rustGetObjectHitKnockdown(index)
+    }
+}
+
+///
+///  Check whether the object at a certain index in the read object list has been  
+///  hit by a player.
+///
+///  `index` The index of the object.
+///
+///  Returns whether the object has been hit by a player.
+///
+pub fn does_object_have_player_hitting(index: c_uint) -> bool {
+    unsafe {
+        raw::rustDoesObjectHavePlayerHitting(index)
+    }
+}
+
+///
+///  Get the player ID of the player hitting the object at a certain index in the  
+///  read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the player ID of the hitting player.
+///
+pub fn get_object_hitting_pid(index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetObjectHittingPid(index)
+    }
+}
+
+///
+///  Get the refId of the actor hitting the object at a certain index in the read  
+///  object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the refId of the hitting actor.
+///
+pub fn get_object_hitting_ref_id(index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetObjectHittingRefId(index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the refNum of the actor hitting the object at a certain index in the read  
+///  object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the refNum of the hitting actor.
+///
+pub fn get_object_hitting_ref_num(index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetObjectHittingRefNum(index)
+    }
+}
+
+///
+///  Get the mpNum of the actor hitting the object at a certain index in the read  
+///  object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the mpNum of the hitting actor.
+///
+pub fn get_object_hitting_mp_num(index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetObjectHittingMpNum(index)
+    }
+}
+
+///
+///  Get the name of the actor hitting the object at a certain index in the read  
+///  object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the name of the hitting actor.
+///
+pub fn get_object_hitting_name(index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetObjectHittingName(index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
 ///  Check whether the object at a certain index in the read object list is a  
 ///  summon.
 ///
@@ -8190,6 +9950,35 @@ pub fn get_object_activating_name(index: c_uint) -> String {
 pub fn get_object_summon_state(index: c_uint) -> bool {
     unsafe {
         raw::rustGetObjectSummonState(index)
+    }
+}
+
+///
+///  Get the summon effect ID of the object at a certain index in the read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the summon effect ID.
+///
+pub fn get_object_summon_effect_id(index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetObjectSummonEffectId(index)
+    }
+}
+
+///
+///  Get the summon spell ID of the object at a certain index in the read object list.
+///
+///  `index` The index of the object.
+///
+///  Returns the summon spell ID.
+///
+pub fn get_object_summon_spell_id(index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetObjectSummonSpellId(index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
     }
 }
 
@@ -8376,10 +10165,84 @@ pub fn get_video_filename(index: c_uint) -> String {
 }
 
 ///
+///  Get the number of client local variables of the object at a certain index in the  
+///  read object list.
+///
+///  `object_index` The index of the object.
+///
+///  Returns the number of client local variables.
+///
+pub fn get_client_locals_size(object_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetClientLocalsSize(object_index)
+    }
+}
+
+///
+///  Get the internal script index of the client local variable at a certain variableIndex in  
+///  the client locals of the object at a certain objectIndex in the read object list.
+///
+///  `object_index` The index of the object.  
+///  `variable_index` The index of the client local.
+///
+///  Returns the internal script index.
+///
+pub fn get_client_local_internal_index(object_index: c_uint, variable_index: c_uint) -> c_uint {
+    unsafe {
+        raw::rustGetClientLocalInternalIndex(object_index, variable_index)
+    }
+}
+
+///
+///  Get the type of the client local variable at a certain variableIndex in the client locals  
+///  of the object at a certain objectIndex in the read object list.
+///
+///  `object_index` The index of the object.  
+///  `variable_index` The index of the client local.
+///
+///  Returns the variable type (0 for INTEGER, 1 for LONG, 2 for FLOAT).
+///
+pub fn get_client_local_variable_type(object_index: c_uint, variable_index: c_uint) -> c_ushort {
+    unsafe {
+        raw::rustGetClientLocalVariableType(object_index, variable_index)
+    }
+}
+
+///
+///  Get the integer value of the client local variable at a certain variableIndex in the client  
+///  locals of the object at a certain objectIndex in the read object list.
+///
+///  `object_index` The index of the object.  
+///  `variable_index` The index of the client local.
+///
+///  Returns the integer value.
+///
+pub fn get_client_local_int_value(object_index: c_uint, variable_index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetClientLocalIntValue(object_index, variable_index)
+    }
+}
+
+///
+///  Get the float value of the client local variable at a certain variableIndex in the client  
+///  locals of the object at a certain objectIndex in the read object list.
+///
+///  `object_index` The index of the object.  
+///  `variable_index` The index of the client local.
+///
+///  Returns the float value.
+///
+pub fn get_client_local_float_value(object_index: c_uint, variable_index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetClientLocalFloatValue(object_index, variable_index)
+    }
+}
+
+///
 ///  Get the number of container item indexes of the object at a certain index in the  
 ///  read object list.
 ///
-///  `index` The index of the object.
+///  `object_index` The index of the object.
 ///
 ///  Returns the number of container item indexes.
 ///
@@ -8502,6 +10365,22 @@ pub fn does_object_have_container(index: c_uint) -> bool {
 }
 
 ///
+///  Check whether the object at a certain index in the read object list has been  
+///         dropped by a player.
+///
+///  Note: Only ObjectLists from ObjectPlace packets contain this information.
+///
+///  `index` The index of the object.
+///
+///  Returns whether the object has been dropped by a player.
+///
+pub fn is_object_dropped_by_player(index: c_uint) -> bool {
+    unsafe {
+        raw::rustIsObjectDroppedByPlayer(index)
+    }
+}
+
+///
 ///  Set the cell of the temporary object list stored on the server.
 ///
 ///  The cell is determined to be an exterior cell if it fits the pattern of a number followed  
@@ -8527,6 +10406,20 @@ pub fn set_object_list_cell(cell_description: &str) {
 pub fn set_object_list_action(action: c_uchar) {
     unsafe {
         raw::rustSetObjectListAction(action)
+    }
+}
+
+///
+///  Set the container subaction type of the temporary object list stored on the server.
+///
+///  `sub_action` The action type (0 for NONE, 1 for DRAG, 2 for DROP, 3 for TAKE_ALL,  
+///                   4 for REPLY_TO_REQUEST, 5 for RESTOCK_RESULT).
+///
+///  Returns void
+///
+pub fn set_object_list_container_sub_action(sub_action: c_uchar) {
+    unsafe {
+        raw::rustSetObjectListContainerSubAction(sub_action)
     }
 }
 
@@ -8633,7 +10526,7 @@ pub fn set_object_charge(charge: c_int) {
 ///
 ///  Object durabilities are set through this value.
 ///
-///  `charge` The enchantment charge.
+///  `enchantment_charge` The enchantment charge.
 ///
 ///  Returns void
 ///
@@ -8646,7 +10539,7 @@ pub fn set_object_enchantment_charge(enchantment_charge: c_double) {
 ///
 ///  Set the soul of the temporary object stored on the server.
 ///
-///  `ref_id` The soul.
+///  `soul` The ID of the soul.
 ///
 ///  Returns void
 ///
@@ -8715,6 +10608,71 @@ pub fn set_object_lock_level(lock_level: c_int) {
 }
 
 ///
+///  Set the dialogue choice type of the temporary object stored on the server.
+///
+///  `dialogue_choice_type` The dialogue choice type.
+///
+///  Returns void
+///
+pub fn set_object_dialogue_choice_type(dialogue_choice_type: c_uint) {
+    unsafe {
+        raw::rustSetObjectDialogueChoiceType(dialogue_choice_type)
+    }
+}
+
+///
+///  Set the dialogue choice topic for the temporary object stored on the server.
+///
+///  `topic` The dialogue choice topic.
+///
+///  Returns void
+///
+pub fn set_object_dialogue_choice_topic(topic: &str) {
+    unsafe {
+        raw::rustSetObjectDialogueChoiceTopic(CString::new(topic).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Set the gold pool of the temporary object stored on the server.
+///
+///  `gold_pool` The gold pool.
+///
+///  Returns void
+///
+pub fn set_object_gold_pool(gold_pool: c_uint) {
+    unsafe {
+        raw::rustSetObjectGoldPool(gold_pool)
+    }
+}
+
+///
+///  Set the hour of the last gold restock of the temporary object stored on the server.
+///
+///  `hour` The hour of the last gold restock.
+///
+///  Returns void
+///
+pub fn set_object_last_gold_restock_hour(hour: c_double) {
+    unsafe {
+        raw::rustSetObjectLastGoldRestockHour(hour)
+    }
+}
+
+///
+///  Set the day of the last gold restock of the temporary object stored on the server.
+///
+///  `day` The day of the last gold restock.
+///
+///  Returns void
+///
+pub fn set_object_last_gold_restock_day(day: c_int) {
+    unsafe {
+        raw::rustSetObjectLastGoldRestockDay(day)
+    }
+}
+
+///
 ///  Set the disarm state of the temporary object stored on the server.
 ///
 ///  `disarm_state` The disarmState.
@@ -8728,31 +10686,15 @@ pub fn set_object_disarm_state(disarm_state: bool) {
 }
 
 ///
-///  Set the summon duration of the temporary object stored on the server.
+///  Set the droppedByPlayer state of the temporary object stored on the server.
 ///
-///  `summon_duration` The summon duration.
-///
-///  Returns void
-///
-pub fn set_object_summon_duration(summon_duration: c_float) {
-    unsafe {
-        raw::rustSetObjectSummonDuration(summon_duration)
-    }
-}
-
-///
-///  Set the summon state of the temporary object stored on the server.
-///
-///  This only affects living actors and determines whether they are summons of another  
-///  living actor.
-///
-///  `summon_state` The summon state.
+///  `droped_by_player_state` Whether the object has been dropped by a player or not.
 ///
 ///  Returns void
 ///
-pub fn set_object_summon_state(summon_state: bool) {
+pub fn set_object_dropped_by_player_state(droped_by_player_state: bool) {
     unsafe {
-        raw::rustSetObjectSummonState(summon_state)
+        raw::rustSetObjectDroppedByPlayerState(droped_by_player_state)
     }
 }
 
@@ -8783,6 +10725,106 @@ pub fn set_object_position(x: c_double, y: c_double, z: c_double) {
 pub fn set_object_rotation(x: c_double, y: c_double, z: c_double) {
     unsafe {
         raw::rustSetObjectRotation(x, y, z)
+    }
+}
+
+pub fn set_object_sound(sound_id: &str, volume: c_double, pitch: c_double) {
+    unsafe {
+        raw::rustSetObjectSound(CString::new(sound_id).unwrap_or_default().as_ptr(), volume, pitch)
+    }
+}
+
+///
+///  Set the summon state of the temporary object stored on the server.
+///
+///  This only affects living actors and determines whether they are summons of another  
+///  living actor.
+///
+///  `summon_state` The summon state.
+///
+///  Returns void
+///
+pub fn set_object_summon_state(summon_state: bool) {
+    unsafe {
+        raw::rustSetObjectSummonState(summon_state)
+    }
+}
+
+///
+///  Set the summon effect ID of the temporary object stored on the server.
+///
+///  `summon_effect_id` The summon effect ID.
+///
+///  Returns void
+///
+pub fn set_object_summon_effect_id(summon_effect_id: c_int) {
+    unsafe {
+        raw::rustSetObjectSummonEffectId(summon_effect_id)
+    }
+}
+
+///
+///  Set the summon spell ID of the temporary object stored on the server.
+///
+///  `summon_spell_id` The summon spell ID.
+///
+///  Returns void
+///
+pub fn set_object_summon_spell_id(summon_spell_id: &str) {
+    unsafe {
+        raw::rustSetObjectSummonSpellId(CString::new(summon_spell_id).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Set the summon duration of the temporary object stored on the server.
+///
+///  `summon_duration` The summon duration.
+///
+///  Returns void
+///
+pub fn set_object_summon_duration(summon_duration: c_double) {
+    unsafe {
+        raw::rustSetObjectSummonDuration(summon_duration)
+    }
+}
+
+///
+///  Set the player ID of the summoner of the temporary object stored on the server.
+///
+///  `pid` The player ID of the summoner.
+///
+///  Returns void
+///
+pub fn set_object_summoner_pid(pid: c_ushort) {
+    unsafe {
+        raw::rustSetObjectSummonerPid(pid)
+    }
+}
+
+///
+///  Set the refNum of the actor summoner of the temporary object stored on the server.
+///
+///  `ref_num` The refNum of the summoner.
+///
+///  Returns void
+///
+pub fn set_object_summoner_ref_num(ref_num: c_int) {
+    unsafe {
+        raw::rustSetObjectSummonerRefNum(ref_num)
+    }
+}
+
+///
+///  Set the mpNum of the actor summoner of the temporary object stored on the server.
+///
+///  `mp_num` The mpNum of the summoner.
+///
+///  Returns void
+///
+pub fn set_object_summoner_mp_num(mp_num: c_int) {
+    unsafe {
+        raw::rustSetObjectSummonerMpNum(mp_num)
     }
 }
 
@@ -8935,7 +10977,7 @@ pub fn set_container_item_charge(charge: c_int) {
 ///
 ///  Set the enchantment charge of the temporary container item stored on the server.
 ///
-///  `charge` The enchantment charge.
+///  `enchantment_charge` The enchantment charge.
 ///
 ///  Returns void
 ///
@@ -8948,7 +10990,7 @@ pub fn set_container_item_enchantment_charge(enchantment_charge: c_double) {
 ///
 ///  Set the soul of the temporary container item stored on the server.
 ///
-///  `ref_id` The soul.
+///  `soul` The soul.
 ///
 ///  Returns void
 ///
@@ -8991,6 +11033,37 @@ pub fn set_container_item_action_count_by_index(object_index: c_uint, item_index
 pub fn add_object() {
     unsafe {
         raw::rustAddObject()
+    }
+}
+
+///
+///  Add a client local variable with an integer value to the client locals of the server's  
+///  temporary object.
+///
+///  `internal_index` The internal script index of the client local.  
+///  `variable_type` The variable type (0 for SHORT, 1 for LONG).  
+///  `int_value` The integer value of the client local.
+///
+///  Returns void
+///
+pub fn add_client_local_integer(internal_index: c_int, int_value: c_int, variable_type: c_uint) {
+    unsafe {
+        raw::rustAddClientLocalInteger(internal_index, int_value, variable_type)
+    }
+}
+
+///
+///  Add a client local variable with a float value to the client locals of the server's  
+///  temporary object.
+///
+///  `internal_index` The internal script index of the client local.  
+///  `float_value` The float value of the client local.
+///
+///  Returns void
+///
+pub fn add_client_local_float(internal_index: c_int, float_value: c_double) {
+    unsafe {
+        raw::rustAddClientLocalFloat(internal_index, float_value)
     }
 }
 
@@ -9061,9 +11134,10 @@ pub fn send_object_spawn(send_to_other_players: bool, skip_attached_player: bool
 ///
 ///  Send an ObjectDelete packet.
 ///
-///  `broadcast` Whether this packet should be sent only to the player for whom the current  
-///                   object list was initialized or to everyone on the server.
-///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
 ///
 ///  Returns void
 ///
@@ -9090,11 +11164,60 @@ pub fn send_object_lock(send_to_other_players: bool, skip_attached_player: bool)
 }
 
 ///
+///  Send an ObjectDialogueChoice packet.
+///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_object_dialogue_choice(send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendObjectDialogueChoice(send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send an ObjectMiscellaneous packet.
+///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_object_miscellaneous(send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendObjectMiscellaneous(send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send an ObjectRestock packet.
+///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_object_restock(send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendObjectRestock(send_to_other_players, skip_attached_player)
+    }
+}
+
+///
 ///  Send an ObjectTrap packet.
 ///
-///  `broadcast` Whether this packet should be sent only to the player for whom the current  
-///                   object list was initialized or to everyone on the server.
-///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
 ///
 ///  Returns void
 ///
@@ -9121,6 +11244,22 @@ pub fn send_object_scale(send_to_other_players: bool, skip_attached_player: bool
 }
 
 ///
+///  Send an ObjectSound packet.
+///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_object_sound(send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendObjectSound(send_to_other_players, skip_attached_player)
+    }
+}
+
+///
 ///  Send an ObjectState packet.
 ///
 ///  `send_to_other_players` Whether this packet should be sent to players other than the  
@@ -9133,6 +11272,38 @@ pub fn send_object_scale(send_to_other_players: bool, skip_attached_player: bool
 pub fn send_object_state(send_to_other_players: bool, skip_attached_player: bool) {
     unsafe {
         raw::rustSendObjectState(send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send an ObjectMove packet.
+///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_object_move(send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendObjectMove(send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send an ObjectRotate packet.
+///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_object_rotate(send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendObjectRotate(send_to_other_players, skip_attached_player)
     }
 }
 
@@ -9197,6 +11368,22 @@ pub fn send_container(send_to_other_players: bool, skip_attached_player: bool) {
 pub fn send_video_play(send_to_other_players: bool, skip_attached_player: bool) {
     unsafe {
         raw::rustSendVideoPlay(send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send a ClientScriptLocal packet.
+///
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_client_script_local(send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendClientScriptLocal(send_to_other_players, skip_attached_player)
     }
 }
 
@@ -9333,6 +11520,20 @@ pub fn copy_received_worldstate_to_store() {
 }
 
 ///
+///  Clear the kill count changes for the write-only worldstate.
+///
+///  This is used to initialize the sending of new WorldKillCount packets.
+///
+///
+///  Returns void
+///
+pub fn clear_kill_changes() {
+    unsafe {
+        raw::rustClearKillChanges()
+    }
+}
+
+///
 ///  Clear the map changes for the write-only worldstate.
 ///
 ///  This is used to initialize the sending of new WorldMap packets.
@@ -9347,6 +11548,32 @@ pub fn clear_map_changes() {
 }
 
 ///
+///  Clear the client globals for the write-only worldstate.
+///
+///  This is used to initialize the sending of new ClientScriptGlobal packets.
+///
+///
+///  Returns void
+///
+pub fn clear_client_globals() {
+    unsafe {
+        raw::rustClearClientGlobals()
+    }
+}
+
+///
+///  Get the number of indexes in the read worldstate's kill changes.
+///
+///
+///  Returns the number of indexes.
+///
+pub fn get_kill_changes_size() -> c_uint {
+    unsafe {
+        raw::rustGetKillChangesSize()
+    }
+}
+
+///
 ///  Get the number of indexes in the read worldstate's map changes.
 ///
 ///
@@ -9355,6 +11582,47 @@ pub fn clear_map_changes() {
 pub fn get_map_changes_size() -> c_uint {
     unsafe {
         raw::rustGetMapChangesSize()
+    }
+}
+
+///
+///  Get the number of indexes in the read worldstate's client globals.
+///
+///
+///  Returns the number of indexes.
+///
+pub fn get_client_globals_size() -> c_uint {
+    unsafe {
+        raw::rustGetClientGlobalsSize()
+    }
+}
+
+///
+///  Get the refId at a certain index in the read worldstate's kill count changes.
+///
+///  `index` The index of the kill count.
+///
+///  Returns the refId.
+///
+pub fn get_kill_ref_id(index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetKillRefId(index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the number of kills at a certain index in the read worldstate's kill count changes.
+///
+///  `index` The index of the kill count.
+///
+///  Returns the number of kills.
+///
+pub fn get_kill_number(index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetKillNumber(index)
     }
 }
 
@@ -9450,9 +11718,68 @@ pub fn get_map_tile_cell_y(index: c_uint) -> c_int {
 }
 
 ///
+///  Get the id of the global variable at a certain index in the read worldstate's  
+///         client globals.
+///
+///  `index` The index of the client global.
+///
+///  Returns the id.
+///
+pub fn get_client_global_id(index: c_uint) -> String {
+    unsafe {
+        CStr::from_ptr(raw::rustGetClientGlobalId(index))
+            .to_str()
+            .unwrap_or_default()
+            .to_string()
+    }
+}
+
+///
+///  Get the type of the global variable at a certain index in the read worldstate's  
+///         client globals.
+///
+///  `index` The index of the client global.
+///
+///  Returns the variable type (0 for INTEGER, 1 for LONG, 2 for FLOAT).
+///
+pub fn get_client_global_variable_type(index: c_uint) -> c_ushort {
+    unsafe {
+        raw::rustGetClientGlobalVariableType(index)
+    }
+}
+
+///
+///  Get the integer value of the global variable at a certain index in the read  
+///         worldstate's client globals.
+///
+///  `index` The index of the client global.
+///
+///  Returns the integer value.
+///
+pub fn get_client_global_int_value(index: c_uint) -> c_int {
+    unsafe {
+        raw::rustGetClientGlobalIntValue(index)
+    }
+}
+
+///
+///  Get the float value of the global variable at a certain index in the read  
+///         worldstate's client globals.
+///
+///  `index` The index of the client global.
+///
+///  Returns the float value.
+///
+pub fn get_client_global_float_value(index: c_uint) -> c_double {
+    unsafe {
+        raw::rustGetClientGlobalFloatValue(index)
+    }
+}
+
+///
 ///  Set the region affected by the next WorldRegionAuthority packet sent.
 ///
-///  `region` The region.
+///  `authority_region` The region.
 ///
 ///  Returns void
 ///
@@ -9610,7 +11937,6 @@ pub fn set_days_passed(days_passed: c_int) {
 ///
 ///  Set the world's time scale in the write-only worldstate stored on the server.
 ///
-///  `pid` The player ID.  
 ///  `time_scale` The time scale.
 ///
 ///  Returns void
@@ -9678,6 +12004,77 @@ pub fn use_actor_collision_for_placed_objects(use_actor_collision: bool) {
 }
 
 ///
+///  Add a new kill count to the kill count changes.
+///
+///  `ref_id` The refId of the kill count.  
+///  `number` The number of kills in the kill count.
+///
+///  Returns void
+///
+pub fn add_kill(ref_id: &str, number: c_int) {
+    unsafe {
+        raw::rustAddKill(CString::new(ref_id).unwrap_or_default().as_ptr(), number)
+    }
+}
+
+///
+///  Add a new client global integer to the client globals.
+///
+///  `id` The id of the client global.  
+///  `variable_type` The variable type (0 for SHORT, 1 for LONG).  
+///  `int_value` The integer value of the client global.
+///
+///  Returns void
+///
+pub fn add_client_global_integer(id: &str, int_value: c_int, variable_type: c_uint) {
+    unsafe {
+        raw::rustAddClientGlobalInteger(CString::new(id).unwrap_or_default().as_ptr(), int_value, variable_type)
+    }
+}
+
+///
+///  Add a new client global float to the client globals.
+///
+///  `id` The id of the client global.  
+///  `float_value` The float value of the client global.
+///
+///  Returns void
+///
+pub fn add_client_global_float(id: &str, float_value: c_double) {
+    unsafe {
+        raw::rustAddClientGlobalFloat(CString::new(id).unwrap_or_default().as_ptr(), float_value)
+    }
+}
+
+///
+///  Add an ID to the list of script IDs whose variable changes should be sent to the  
+///         the server by clients.
+///
+///  `script_id` The ID.
+///
+///  Returns void
+///
+pub fn add_synchronized_client_script_id(script_id: &str) {
+    unsafe {
+        raw::rustAddSynchronizedClientScriptId(CString::new(script_id).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Add an ID to the list of global IDs whose value changes should be sent to the  
+///         server by clients.
+///
+///  `global_id` The ID.
+///
+///  Returns void
+///
+pub fn add_synchronized_client_global_id(global_id: &str) {
+    unsafe {
+        raw::rustAddSynchronizedClientGlobalId(CString::new(global_id).unwrap_or_default().as_ptr())
+    }
+}
+
+///
 ///  Add a refId to the list of refIds for which collision should be enforced  
 ///         irrespective of other settings.
 ///
@@ -9692,7 +12089,60 @@ pub fn add_enforced_collision_ref_id(ref_id: &str) {
 }
 
 ///
-///  Clear the list of refIdsd for which collision should be enforced irrespective  
+///  Add a cell with given cellDescription to the list of cells that should be reset on the client.
+///
+///
+///  Returns void
+///
+pub fn add_cell_to_reset(cell_description: &str) {
+    unsafe {
+        raw::rustAddCellToReset(CString::new(cell_description).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Add a destination override containing the cell description for the old cell  
+///         and the new cell.
+///
+///  `old_cell_description` The old cell description.  
+///  `new_cell_description` The new cell description.
+///
+///  Returns void
+///
+pub fn add_destination_override(old_cell_description: &str, new_cell_description: &str) {
+    unsafe {
+        raw::rustAddDestinationOverride(CString::new(old_cell_description).unwrap_or_default().as_ptr(), CString::new(new_cell_description).unwrap_or_default().as_ptr())
+    }
+}
+
+///
+///  Clear the list of script IDs whose variable changes should be sent to the  
+///         the server by clients.
+///
+///
+///  Returns void
+///
+pub fn clear_synchronized_client_script_ids() {
+    unsafe {
+        raw::rustClearSynchronizedClientScriptIds()
+    }
+}
+
+///
+///  Clear the list of global IDs whose value changes should be sent to the  
+///         the server by clients.
+///
+///
+///  Returns void
+///
+pub fn clear_synchronized_client_global_ids() {
+    unsafe {
+        raw::rustClearSynchronizedClientGlobalIds()
+    }
+}
+
+///
+///  Clear the list of refIds for which collision should be enforced irrespective  
 ///         of other settings.
 ///
 ///
@@ -9701,6 +12151,30 @@ pub fn add_enforced_collision_ref_id(ref_id: &str) {
 pub fn clear_enforced_collision_ref_ids() {
     unsafe {
         raw::rustClearEnforcedCollisionRefIds()
+    }
+}
+
+///
+///  Clear the list of cells which should be reset on the client.
+///
+///
+///  Returns void
+///
+pub fn clear_cells_to_reset() {
+    unsafe {
+        raw::rustClearCellsToReset()
+    }
+}
+
+///
+///  Clear the list of destination overrides.
+///
+///
+///  Returns void
+///
+pub fn clear_destination_overrides() {
+    unsafe {
+        raw::rustClearDestinationOverrides()
     }
 }
 
@@ -9736,12 +12210,68 @@ pub fn load_map_tile_image_file(cell_x: c_int, cell_y: c_int, file_path: &str) {
 }
 
 ///
+///  Send a ClientScriptGlobal packet with the current client script globals in  
+///         the write-only worldstate.
+///
+///  `pid` The player ID attached to the packet.  
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_client_script_global(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendClientScriptGlobal(pid, send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send a ClientScriptSettings packet with the current client script settings in  
+///         the write-only worldstate.
+///
+///  `pid` The player ID attached to the packet.  
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_client_script_settings(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendClientScriptSettings(pid, send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send a WorldKillCount packet with the current set of kill count changes in the write-only  
+///         worldstate.
+///
+///  `pid` The player ID attached to the packet.  
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_world_kill_count(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendWorldKillCount(pid, send_to_other_players, skip_attached_player)
+    }
+}
+
+///
 ///  Send a WorldMap packet with the current set of map changes in the write-only  
 ///         worldstate.
 ///
 ///  `pid` The player ID attached to the packet.  
-///  `broadcast` Whether this packet should be sent only to the attached player  
-///                   or to all players on the server.
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
 ///
 ///  Returns void
 ///
@@ -9801,6 +12331,37 @@ pub fn send_world_weather(pid: c_ushort, send_to_other_players: bool, skip_attac
 pub fn send_world_collision_override(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
     unsafe {
         raw::rustSendWorldCollisionOverride(pid, send_to_other_players, skip_attached_player)
+    }
+}
+
+///
+///  Send a CellReset packet with a list of cells,
+///
+///  `pid` The player ID attached to the packet.
+///
+///  Returns void
+///
+pub fn send_cell_reset(pid: c_ushort, send_to_other_players: bool) {
+    unsafe {
+        raw::rustSendCellReset(pid, send_to_other_players)
+    }
+}
+
+///
+///  Send a WorldDestinationOverride packet with the current destination overrides in  
+///         the write-only worldstate.
+///
+///  `pid` The player ID attached to the packet.  
+///  `send_to_other_players` Whether this packet should be sent to players other than the  
+///                            player attached to the packet (false by default).  
+///  `skip_attached_player` Whether the packet should skip being sent to the player attached  
+///                            to the packet (false by default).
+///
+///  Returns void
+///
+pub fn send_world_destination_override(pid: c_ushort, send_to_other_players: bool, skip_attached_player: bool) {
+    unsafe {
+        raw::rustSendWorldDestinationOverride(pid, send_to_other_players, skip_attached_player)
     }
 }
 
